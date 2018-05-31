@@ -1,0 +1,11 @@
+{# proposals channel index template #}
+
+{% extends '_layout' %}
+
+{% block content %}
+  {% for entry in craft.entries
+    .section('proposals').all()
+    %}
+    <a href="{{ entry.url }}">{{ entry.title }}</a>
+  {% endfor %}
+{% endblock %}
