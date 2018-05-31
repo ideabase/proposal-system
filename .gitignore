@@ -10,6 +10,3 @@ package-lock.json
 /craft/plugins
 /craft/storage/logs
 .env
-
-# Ignore Composer dependencies
-/craft/vendor
