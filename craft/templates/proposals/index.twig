@@ -1,11 +1,19 @@
 {# /templates/proposals/index.twig #}
 
-{% extends '_layout' %}
+{% extends '\_layout' %}
+
+{# proposals = list of proposals ordered by most recently updated #}
+{% set proposals = craft.entries.section('proposals').orderBy('entries.dateUpdated').all() %}
 
 {% block content %}
-  {% for entry in craft.entries
-    .section('proposals').all()
-    %}
-    <a href="{{ entry.url }}">{{ entry.title }}</a>
+
+  <h1>Proposals</h1>
+
+  {# for each proposal, show a link #}
+  {% for proposal in proposals %}
+
+    <div><a href="{{ proposal.url }}">{{ proposal.title }}</a></div>
+
   {% endfor %}
+
 {% endblock %}

@@ -1,0 +1,18 @@
+{# /templates/clients/_category.twig #}
+
+{% extends '_layout' %}
+
+{% block content %}
+
+  <h1>{{ category.title }}</h1>
+
+  <h2>Address</h2>
+  {% for block in category.addresses.all() %}
+    <div>
+      <p>{{ block.clientAddress1 }}</p>
+
+      {# TODO #}
+    </div>
+  {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{# /templates/clients/index.twig #}
+
+{% extends '_layout' %}
+
+{# clients = list of clients ordered by title #}
+{% set clients = craft.categories.group('clients').orderBy('title').all() %}
+
+{% block content %}
+
+  <h1>Clients</h1>
+
+  {# for each client, show a link #}
+  {% for client in clients %}
+    <div><a href="{{ client.url }}">{{ client.title }}</a></div>
+  {% endfor %}
+
+{% endblock %}
