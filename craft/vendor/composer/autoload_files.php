@@ -15,4 +15,5 @@ return array(
     '5255c38a0faeba867671b61dfda6d864' => $vendorDir . '/paragonie/random_compat/lib/random.php',
     '2c102faa651ef8ea5874edb585946bce' => $vendorDir . '/swiftmailer/swiftmailer/lib/swift_required.php',
     '65fec9ebcfbb3cbb4fd0d519687aea01' => $vendorDir . '/danielstjules/stringy/src/Create.php',
+    '6a47392539ca2329373e0d33e1dba053' => $vendorDir . '/symfony/polyfill-intl-icu/bootstrap.php',
 );

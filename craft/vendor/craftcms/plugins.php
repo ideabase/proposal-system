@@ -39,4 +39,24 @@ return array (
     'changelogUrl' => 'https://raw.githubusercontent.com/BarrelStrength/sprout-fields/master/CHANGELOG.md',
     'downloadUrl' => 'https://github.com/BarrelStrength/sprout-fields/archive/master.zip',
   ),
+  'newism/craft3-fields' => 
+  array (
+    'class' => 'newism\\fields\\NsmFields',
+    'basePath' => $vendorDir . '/newism/craft3-fields/src',
+    'handle' => 'nsm-fields',
+    'aliases' => 
+    array (
+      '@newism/fields' => $vendorDir . '/newism/craft3-fields/src',
+    ),
+    'name' => 'NSM Fields',
+    'version' => '0.0.10',
+    'schemaVersion' => '1.0.0',
+    'description' => 'Address, telephone and email fields for CraftCMS 3.x',
+    'developer' => 'Newism',
+    'developerUrl' => 'http://newism.com.au',
+    'documentationUrl' => 'https://github.com/newism/craft3-fields/blob/master/README.md',
+    'changelogUrl' => 'https://raw.githubusercontent.com/newism/craft3-fields/master/CHANGELOG.md',
+    'hasCpSettings' => true,
+    'hasCpSection' => false,
+  ),
 );

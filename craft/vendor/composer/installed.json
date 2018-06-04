@@ -1046,6 +1046,51 @@
         ]
     },
     {
+        "name": "embed/embed",
+        "version": "v3.3.3",
+        "version_normalized": "3.3.3.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/oscarotero/Embed/zipball/d180045daf923980bf254b2973ea13c421435d11",
+            "reference": "d180045daf923980bf254b2973ea13c421435d11",
+            "shasum": ""
+        },
+        "require": {
+            "composer/ca-bundle": "^1.0",
+            "ext-curl": "*",
+            "ext-mbstring": "*",
+            "php": "^5.5|^7.0"
+        },
+        "time": "2018-05-31T17:17:30+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Embed\\": "src"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Oscar Otero",
+                "email": "oom@oscarotero.com",
+                "homepage": "http://oscarotero.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP library to retrieve page info using oembed, opengraph, etc",
+        "homepage": "https://github.com/oscarotero/Embed",
+        "keywords": [
+            "embed",
+            "embedly",
+            "oembed",
+            "opengraph",
+            "twitter cards"
+        ]
+    },
+    {
         "name": "enshrined/svg-sanitize",
         "version": "0.8.2",
         "version_normalized": "0.8.2.0",
@@ -1729,6 +1774,66 @@
         ]
     },
     {
+        "name": "newism/craft3-fields",
+        "version": "0.0.10",
+        "version_normalized": "0.0.10.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/newism/craft3-fields/zipball/0671350c153ced3e4e6742c299fcd7cbde57966a",
+            "reference": "0671350c153ced3e4e6742c299fcd7cbde57966a",
+            "shasum": ""
+        },
+        "require": {
+            "commerceguys/addressing": "^0.8.4",
+            "craftcms/cms": "^3.0.0-RC13",
+            "embed/embed": "^3.0",
+            "giggsey/libphonenumber-for-php": "^8.3",
+            "symfony/intl": "^3.3"
+        },
+        "time": "2018-03-01T11:31:24+00:00",
+        "type": "craft-plugin",
+        "extra": {
+            "name": "NSM Fields",
+            "handle": "nsm-fields",
+            "schemaVersion": "1.0.0",
+            "hasCpSettings": true,
+            "hasCpSection": false,
+            "changelogUrl": "https://raw.githubusercontent.com/newism/craft3-fields/master/CHANGELOG.md",
+            "class": "newism\\fields\\NsmFields"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "newism\\fields\\": "src/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Newism",
+                "homepage": "http://newism.com.au"
+            },
+            {
+                "name": "Leevi Graham",
+                "homepage": "http://leevigraham.com"
+            }
+        ],
+        "description": "Address, telephone and email fields for CraftCMS 3.x",
+        "keywords": [
+            "cms",
+            "craft",
+            "craft-plugin",
+            "craftcms",
+            "nsm-fields"
+        ],
+        "support": {
+            "docs": "https://github.com/newism/craft3-fields/blob/master/README.md",
+            "issues": "https://github.com/newism/craft3-fields/issues"
+        }
+    },
+    {
         "name": "paragonie/random_compat",
         "version": "v2.0.12",
         "version_normalized": "2.0.12.0",
@@ -2316,6 +2421,74 @@
         "homepage": "https://symfony.com"
     },
     {
+        "name": "symfony/intl",
+        "version": "v3.4.11",
+        "version_normalized": "3.4.11.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/intl/zipball/267f3eae9a2e79a51e103d57880db114eb4f19ab",
+            "reference": "267f3eae9a2e79a51e103d57880db114eb4f19ab",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8",
+            "symfony/polyfill-intl-icu": "~1.0"
+        },
+        "suggest": {
+            "ext-intl": "to use the component with locales other than \"en\""
+        },
+        "time": "2018-05-21T10:06:52+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Intl\\": ""
+            },
+            "classmap": [
+                "Resources/stubs"
+            ],
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bernhard Schussek",
+                "email": "bschussek@gmail.com"
+            },
+            {
+                "name": "Eriksen Costa",
+                "email": "eriksen.costa@infranology.com.br"
+            },
+            {
+                "name": "Igor Wiedler",
+                "email": "igor@wiedler.ch"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "A PHP replacement layer for the C intl extension that includes additional data from the ICU library.",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "i18n",
+            "icu",
+            "internationalization",
+            "intl",
+            "l10n",
+            "localization"
+        ]
+    },
+    {
         "name": "symfony/polyfill-ctype",
         "version": "v1.8.0",
         "version_normalized": "1.8.0.0",
@@ -2365,6 +2538,60 @@
             "ctype",
             "polyfill",
             "portable"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-intl-icu",
+        "version": "v1.8.0",
+        "version_normalized": "1.8.0.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/80ee17ae83c10cd513e5144f91a73607a21edb4e",
+            "reference": "80ee17ae83c10cd513e5144f91a73607a21edb4e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "symfony/intl": "~2.3|~3.0|~4.0"
+        },
+        "suggest": {
+            "ext-intl": "For best performance"
+        },
+        "time": "2018-04-25T14:53:50+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.8-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for intl's ICU-related data and classes",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "icu",
+            "intl",
+            "polyfill",
+            "portable",
+            "shim"
         ]
     },
     {
