@@ -7,38 +7,8 @@
   {# page title #}
   <h1>{{ category.title }}</h1>
 
-  {# addresses #}
-  <h2>
-    {# make heading plural if client has more than one address #}
-    {% if category.addresses.all()|length == 1 %}Address{% else %}Addresses{% endif %}
-  </h2>
-  {# TODO: check if addresses exist #}
-  {# begin addresses loop #}
-  {% for block in category.addresses.all() %}
-    {% set count = 1 %}
-    {% if count > 1 %}
-      <h4>Address {{ count }}</h4>
-    {% endif %}
-
-    <div>
-      <p>{{ block.clientAddress1 }}</p>
-
-      {% if block.clientAddress2 is not empty %}
-        <p>{{ block.clientAddress2 }}</p>
-      {% endif %}
-
-      <p>{{ block.clientCity }}, {{ block.clientState }} {{ block.clientZipCode }}</p>
-
-      {% if block.clientAddressDescription is not empty %}
-        <p>{{ block.clientAddressDescription }}</p>
-      {% endif %}
-    </div>
-  {% endfor %}
-  {# end addresses loop #}
-
   {# contacts #}
   <h2>
-    {# make heading plural if client has more than one contact #}
     {% if category.contacts.all()|length == 1 %}Contact{% else %}Contacts{% endif %}
   </h2>
   {# TODO: check if contacts exist #}
@@ -50,26 +20,53 @@
     {% endif %}
     <div>
       {# IMPORTANT: HTML WILL CHANGE IF <p> IS FORMATTED - prints prefix if exists, first name, last name, suffix if exists, title if exists #}
-      <p>{% if block.contactPrefix is not empty %}{{ block.contactPrefix }}&nbsp;{% endif %}{{ block.contactFirstName }}&nbsp;{{ block.contactLastName }}{% if block.contactSuffix is not empty %}{% if block.contactSuffix == "I"|upper or block.contactSuffix == "II"|upper or block.contactSuffix == "III"|upper or block.contactSuffix == "IV"|upper or block.contactSuffix == "V"|upper %}&nbsp;{{ block.contactSuffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ block.contactSuffix }}&nbsp;{% endif %}{% endif %}{% if block.contactTitle is not empty %}&sol;&nbsp;{{ block.contactTitle }}{% endif %}</p>
+      <p>{% if block.prefix is not empty %}{{ block.prefix|title }}&nbsp;{% endif %}{{ block.firstName|title }}&nbsp;{{ block.lastName|title }}{% if block.suffix is not empty %}{% if block.suffix == "I"|upper or block.suffix == "II"|upper or block.suffix == "III"|upper or block.suffix == "IV"|upper or block.suffix == "V"|upper %}&nbsp;{{ block.suffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ block.suffix }}&nbsp;{% endif %}{% endif %}{% if block.contactTitle is not empty %}&sol;&nbsp;{{ block.contactTitle|title }}{% endif %}</p>
 
-      {% if block.contactPhone is not empty %}
-        <p>{{ block.contactPhone }}</p>
+      {% if block.phoneNumber is not empty %}
+        <p>{{ block.phoneNumber }}</p>
       {% endif %}
 
-      {% if block.contactEmail is not empty %}
-        <p>{{ block.contactEmail }}</p>
+      {% if block.email is not empty %}
+        <p>{{ block.email }}</p>
       {% endif %}
 
-      {% if block.contactOtherInformation is not empty %}
-        <p>{{ block.contactOtherInformation }}</p>
+      {% if block.otherInformation is not empty %}
+        <p>{{ block.otherInformation }}</p>
       {% endif %}
     </div>
   {% endfor %}
   {# end contacts loop #}
 
+  {# addresses #}
+  <h2>
+    {% if category.addresses.all()|length == 1 %}Address{% else %}Addresses{% endif %}
+  </h2>
+  {# TODO: check if addresses exist #}
+  {# begin addresses loop #}
+  {% for block in category.addresses.all() %}
+    {% set count = 1 %}
+    {% if count > 1 %}
+      <h4>Address {{ count }}</h4>
+    {% endif %}
+
+    <div>
+      <p>{{ block.address1|title }}</p>
+
+      {% if block.address2 is not empty %}
+        <p>{{ block.address2|title }}</p>
+      {% endif %}
+
+      <p>{{ block.city|title }}, {{ block.state|upper }} {{ block.zipCode }}</p>
+
+      {% if block.description is not empty %}
+        <p>{{ block.description }}</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+  {# end addresses loop #}
+
   {# proposals #}
   <h2>
-    {# make heading plural if client has more than one proposal #}
     {% if craft.categories.group('clients').title(category.title).all()|length == 1 %}Proposal{% else %}Proposals{% endif %}
   </h2>
   {# TODO: check if proposals exist #}
