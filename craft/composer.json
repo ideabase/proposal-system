@@ -1,9 +1,7 @@
 {
     "require": {
         "craftcms/cms": "^3.0.0",
-        "craftcms/redactor": "2.1.0",
-        "barrelstrength/sprout-fields": "v3.1.2",
-        "newism/craft3-fields": "0.0.10"
+        "craftcms/redactor": "2.1.0"
     },
     "config": {
       "platform": {

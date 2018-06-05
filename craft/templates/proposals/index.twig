@@ -2,19 +2,19 @@
 
 {% extends '\_layout' %}
 
-{# SET PROPOSALS = LIST OF PROPOSALS ORDERED BY DATE UPDATED #}
+{# set proposals = list of proposals ordered by date updated #}
 {% set proposals = craft.entries.section('proposals').orderBy('entries.dateUpdated').all() %}
 
 {% block content %}
 
-  {# PAGE TITLE #}
+  {# page title #}
   <h1>Proposals</h1>
 
-  {# BEGIN PROPOSALS LOOP #}
+  {# begin proposals loop #}
   {% for proposal in proposals %}
     <div><a href="{{ proposal.url }}">{{ proposal.title }}</a></div>
   {% endfor %}
-  {# END PROPOSALS LOOP #}
+  {# end proposals loop #}
 
 {% endblock %}
-{# END CONTENT BLOCK #}
+{# end content block #}

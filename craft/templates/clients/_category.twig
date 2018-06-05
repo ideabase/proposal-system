@@ -4,14 +4,16 @@
 
 {% block content %}
 
-{# PAGE TITLE #}
+  {# page title #}
   <h1>{{ category.title }}</h1>
 
-{# ADDRESSES #}
+  {# addresses #}
   <h2>
+    {# make heading plural if client has more than one address #}
     {% if category.addresses.all()|length == 1 %}Address{% else %}Addresses{% endif %}
   </h2>
-  {# BEGIN ADDRESSES LOOP #}
+  {# TODO: check if addresses exist #}
+  {# begin addresses loop #}
   {% for block in category.addresses.all() %}
     {% set count = 1 %}
     {% if count > 1 %}
@@ -32,20 +34,23 @@
       {% endif %}
     </div>
   {% endfor %}
-  {# END ADDRESSES LOOP #}
+  {# end addresses loop #}
 
-{# CONTACTS #}
+  {# contacts #}
   <h2>
+    {# make heading plural if client has more than one contact #}
     {% if category.contacts.all()|length == 1 %}Contact{% else %}Contacts{% endif %}
   </h2>
-  {# BEGIN CONTACTS LOOP #}
+  {# TODO: check if contacts exist #}
+  {# begin contacts loop #}
   {% for block in category.contacts.all() %}
     {% set count = 1 %}
     {% if count > 1 %}
       <h4>Contact {{ count }}</h4>
     {% endif %}
     <div>
-      <p>{% if block.contactPrefix is not empty %}{{ block.contactPrefix }}&nbsp;{% endif %}{{ block.contactFirstName }}&nbsp;{{ block.contactLastName }}{% if block.contactSuffix is not empty %}&comma;&nbsp;{{ block.contactSuffix }}{% endif %}{% if block.contactTitle is not empty %}&nbsp;&sol;&nbsp;{{ block.contactTitle }}{% endif %}</p>
+      {# IMPORTANT: HTML WILL CHANGE IF <p> IS FORMATTED - prints prefix if exists, first name, last name, suffix if exists, title if exists #}
+      <p>{% if block.contactPrefix is not empty %}{{ block.contactPrefix }}&nbsp;{% endif %}{{ block.contactFirstName }}&nbsp;{{ block.contactLastName }}{% if block.contactSuffix is not empty %}{% if block.contactSuffix == "I"|upper or block.contactSuffix == "II"|upper or block.contactSuffix == "III"|upper or block.contactSuffix == "IV"|upper or block.contactSuffix == "V"|upper %}&nbsp;{{ block.contactSuffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ block.contactSuffix }}&nbsp;{% endif %}{% endif %}{% if block.contactTitle is not empty %}&sol;&nbsp;{{ block.contactTitle }}{% endif %}</p>
 
       {% if block.contactPhone is not empty %}
         <p>{{ block.contactPhone }}</p>
@@ -60,16 +65,19 @@
       {% endif %}
     </div>
   {% endfor %}
-  {# END CONTACTS LOOP #}
+  {# end contacts loop #}
 
-{# PROPOSALS #}
+  {# proposals #}
   <h2>
+    {# make heading plural if client has more than one proposal #}
     {% if craft.categories.group('clients').title(category.title).all()|length == 1 %}Proposal{% else %}Proposals{% endif %}
   </h2>
-  {# BEGIN PROPOSALS LOOP #}
-  {% for block in craft.entries.section('proposals').relatedTo(category).all() %}
-    {# TODO: add client list and link proposals to their respective clients #}
+  {# TODO: check if proposals exist #}
+  {# begin proposals loop #}
+  {% for entry in craft.entries.section('proposals').relatedTo(category).all() %}
+      <a href="{{ entry.url }}" target="_blank">{{ entry.title }}</a>
   {% endfor %}
+  {# end proposals loop #}
 
 {% endblock %}
-{# END CONTENT BLOCK #}
+{# end content block #}

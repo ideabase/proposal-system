@@ -2,19 +2,19 @@
 
 {% extends '_layout' %}
 
-{# SET CLIENTS = LIST OF CLIENTS ORDERED BY TITLE #}
+{# set clients = list of clients ordered by title #}
 {% set clients = craft.categories.group('clients').orderBy('title').all() %}
 
 {% block content %}
 
-  {# PAGE TITLE #}
+  {# page title #}
   <h1>Clients</h1>
 
-  {# BEGIN CLIENTS LOOP #}
+  {# begin clients loop #}
   {% for client in clients %}
     <div><a href="{{ client.url }}">{{ client.title }}</a></div>
   {% endfor %}
-  {# END CLIENTS LOOP #}
+  {# end clients loop #}
 
 {% endblock %}
-{# END CONTENT BLOCK #}
+{# end content block #}
