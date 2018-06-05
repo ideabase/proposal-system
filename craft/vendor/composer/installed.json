@@ -681,18 +681,18 @@
     },
     {
         "name": "craftcms/redactor",
-        "version": "2.0.0.1",
-        "version_normalized": "2.0.0.1",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/craftcms/redactor/zipball/6156e81b6b9e2d076e7a02e5292f3570d2caba31",
-            "reference": "6156e81b6b9e2d076e7a02e5292f3570d2caba31",
+            "url": "https://api.github.com/repos/craftcms/redactor/zipball/7d72a873e12ea7c92a8a6d00e025e303089d504e",
+            "reference": "7d72a873e12ea7c92a8a6d00e025e303089d504e",
             "shasum": ""
         },
         "require": {
             "craftcms/cms": "^3.0.0-RC15"
         },
-        "time": "2018-05-01T20:32:01+00:00",
+        "time": "2018-05-15T21:58:54+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "Redactor",
@@ -706,7 +706,6 @@
                 "craft\\redactor\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -718,12 +717,19 @@
         ],
         "description": "Edit rich text content in Craft CMS using Redactor by Imperavi.",
         "keywords": [
-            "Redactor",
             "cms",
             "craftcms",
             "html",
+            "redactor",
             "yii2"
-        ]
+        ],
+        "support": {
+            "email": "support@craftcms.com",
+            "issues": "https://github.com/craftcms/redactor/issues?state=open",
+            "source": "https://github.com/craftcms/redactor",
+            "docs": "https://github.com/craftcms/redactor",
+            "rss": "https://github.com/craftcms/redactor/commits/master.atom"
+        }
     },
     {
         "name": "craftcms/server-check",
