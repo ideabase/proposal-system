@@ -4,15 +4,72 @@
 
 {% block content %}
 
+{# PAGE TITLE #}
   <h1>{{ category.title }}</h1>
 
-  <h2>Address</h2>
+{# ADDRESSES #}
+  <h2>
+    {% if category.addresses.all()|length == 1 %}Address{% else %}Addresses{% endif %}
+  </h2>
+  {# BEGIN ADDRESSES LOOP #}
   {% for block in category.addresses.all() %}
+    {% set count = 1 %}
+    {% if count > 1 %}
+      <h4>Address {{ count }}</h4>
+    {% endif %}
+
     <div>
       <p>{{ block.clientAddress1 }}</p>
 
-      {# TODO #}
+      {% if block.clientAddress2 is not empty %}
+        <p>{{ block.clientAddress2 }}</p>
+      {% endif %}
+
+      <p>{{ block.clientCity }}, {{ block.clientState }} {{ block.clientZipCode }}</p>
+
+      {% if block.clientAddressDescription is not empty %}
+        <p>{{ block.clientAddressDescription }}</p>
+      {% endif %}
     </div>
+  {% endfor %}
+  {# END ADDRESSES LOOP #}
+
+{# CONTACTS #}
+  <h2>
+    {% if category.contacts.all()|length == 1 %}Contact{% else %}Contacts{% endif %}
+  </h2>
+  {# BEGIN CONTACTS LOOP #}
+  {% for block in category.contacts.all() %}
+    {% set count = 1 %}
+    {% if count > 1 %}
+      <h4>Contact {{ count }}</h4>
+    {% endif %}
+    <div>
+      <p>{% if block.contactPrefix is not empty %}{{ block.contactPrefix }}&nbsp;{% endif %}{{ block.contactFirstName }}&nbsp;{{ block.contactLastName }}{% if block.contactSuffix is not empty %}&comma;&nbsp;{{ block.contactSuffix }}{% endif %}{% if block.contactTitle is not empty %}&nbsp;&sol;&nbsp;{{ block.contactTitle }}{% endif %}</p>
+
+      {% if block.contactPhone is not empty %}
+        <p>{{ block.contactPhone }}</p>
+      {% endif %}
+
+      {% if block.contactEmail is not empty %}
+        <p>{{ block.contactEmail }}</p>
+      {% endif %}
+
+      {% if block.contactOtherInformation is not empty %}
+        <p>{{ block.contactOtherInformation }}</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+  {# END CONTACTS LOOP #}
+
+{# PROPOSALS #}
+  <h2>
+    {% if craft.categories.group('clients').title(category.title).all()|length == 1 %}Proposal{% else %}Proposals{% endif %}
+  </h2>
+  {# BEGIN PROPOSALS LOOP #}
+  {% for block in craft.entries.section('proposals').relatedTo(category).all() %}
+    {# TODO: add client list and link proposals to their respective clients #}
   {% endfor %}
 
 {% endblock %}
+{# END CONTENT BLOCK #}
