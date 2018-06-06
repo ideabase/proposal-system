@@ -2042,6 +2042,7 @@ return array(
     'craft\\db\\QueryAbortedException' => $vendorDir . '/craftcms/cms/src/db/QueryAbortedException.php',
     'craft\\db\\StructuredElementQuery' => $vendorDir . '/craftcms/cms/src/db/StructuredElementQuery.php',
     'craft\\db\\TableSchema' => $vendorDir . '/craftcms/cms/src/db/TableSchema.php',
+    'craft\\db\\mysql\\ColumnSchema' => $vendorDir . '/craftcms/cms/src/db/mysql/ColumnSchema.php',
     'craft\\db\\mysql\\ColumnSchemaBuilder' => $vendorDir . '/craftcms/cms/src/db/mysql/ColumnSchemaBuilder.php',
     'craft\\db\\mysql\\QueryBuilder' => $vendorDir . '/craftcms/cms/src/db/mysql/QueryBuilder.php',
     'craft\\db\\mysql\\Schema' => $vendorDir . '/craftcms/cms/src/db/mysql/Schema.php',

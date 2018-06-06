@@ -2460,6 +2460,7 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         'craft\\db\\QueryAbortedException' => __DIR__ . '/..' . '/craftcms/cms/src/db/QueryAbortedException.php',
         'craft\\db\\StructuredElementQuery' => __DIR__ . '/..' . '/craftcms/cms/src/db/StructuredElementQuery.php',
         'craft\\db\\TableSchema' => __DIR__ . '/..' . '/craftcms/cms/src/db/TableSchema.php',
+        'craft\\db\\mysql\\ColumnSchema' => __DIR__ . '/..' . '/craftcms/cms/src/db/mysql/ColumnSchema.php',
         'craft\\db\\mysql\\ColumnSchemaBuilder' => __DIR__ . '/..' . '/craftcms/cms/src/db/mysql/ColumnSchemaBuilder.php',
         'craft\\db\\mysql\\QueryBuilder' => __DIR__ . '/..' . '/craftcms/cms/src/db/mysql/QueryBuilder.php',
         'craft\\db\\mysql\\Schema' => __DIR__ . '/..' . '/craftcms/cms/src/db/mysql/Schema.php',

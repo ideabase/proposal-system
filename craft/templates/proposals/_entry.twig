@@ -3,6 +3,74 @@
 {% extends '_layout' %}
 
 {% block content %}
-  {% include 'proposals/_document' %}
+
+  {# set client = user selected entry category #}
+  {% set client = craft.categories.relatedTo(entry).one() %}
+
+  {# set contact = first contact from the client #}
+  {% set contact = client.contacts.one() %}
+
+  {# set address = first address from the client #}
+  {% set address = client.addresses.one() %}
+
+  {# TODO: add ideabase logo at top of document #}
+  {# checkbox for glyphix logo #}
+
+  {# document heading #}
+  <h1>Proposal of Engagement</h1>
+
+  <div>
+    <p>For: {{ client.title }}{% if entry.organization is not empty %}&nbsp;&sol;&nbsp;{{ client.organization }}{% endif %}</p>
+    {# IMPORTANT: UPDATE 'clients/_category' AS WELL IF YOU CHANGE THIS PARAGRAPH - prints prefix if exists, first name, last name, suffix if exists, title if exists #}
+    <p>To: {% if contact.prefix is not empty %}{{ contact.prefix }}&nbsp;{% endif %}{{ contact.firstName|title }}&nbsp;{{ contact.lastName|title }}{% if contact.suffix is not empty %}{% if contact.suffix == "I"|upper or contact.suffix == "II"|upper or contact.suffix == "III"|upper or contact.suffix == "IV"|upper or contact.suffix == "V"|upper %}&nbsp;{{ contact.suffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ contact.suffix }}&nbsp;{% endif %}{% endif %}{% if contact.contactTitle is not empty %}&sol;&nbsp;{{ contact.contactTitle|title }}{% endif %}</p>
+    <p>From: IdeaBase, a Research-Based Design Agency at Kent State University</p>
+    <p>Date: {{ entry.date }}</p>
+  </div>
+
+  {# thank you note #}
+  <div>
+    {% set thankYou %}
+      {% include 'proposals/_thank-you' %}
+    {% endset %}
+    {{ thankYou|markdown }}
+  </div>
+
+  {# working with IdeaBase #}
+  <div>
+    <h2>Working with IdeaBase</h2>
+
+    {% set workingWithIdeabase %}
+      {% include 'proposals/_working-with-ideabase' %}
+    {% endset %}
+    {{ workingWithIdeabase|markdown }}
+  </div>
+
+  {# project scope #}
+  <div>
+    <h2>Scope of Work</h2>
+
+    <h3>Situation:</h3>
+    {# extensive project description (situation) #}
+    <div>
+      {{ entry.situation }}
+    </div>
+
+    <h3>Proposed Project Elements and Associated Estimates:</h3>
+    {# proposed project elements #}
+
+    {# estimated total and discounts if applicable #}
+
+  </div>
+
+  {# terms and conditions #}
+  <div>
+    <h2>Terms and Conditions</h2>
+
+    {% set terms %}
+      {% include 'proposals/_terms' %}
+    {% endset %}
+    {{ terms|markdown }}
+  </div>
+
 {% endblock %}
 {# end content block #}
