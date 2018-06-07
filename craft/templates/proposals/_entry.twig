@@ -13,21 +13,14 @@
   {# set address = first address from the client #}
   {% set address = client.addresses.one() %}
 
-  {# TODO: add ideabase logo at top of document #}
-  {# checkbox for glyphix logo #}
+  {# TODO: add ideabase logo at top of proposal #}
+  {# TODO: checkbox for glyphix logo #}
 
-  {# document heading #}
+  {# proposal header #}
   <h1>Proposal of Engagement</h1>
 
   <div>
-    <p>For:
-      <a href="{{ client.url }}" alt="{{ client.title }}">{{ client.title }}
-        {% if client.organization is not empty %}
-          &nbsp;&sol;&nbsp;{{ client.organization }}
-        {% endif %}
-      </a>
-
-    </p>
+    <p>For: <a href="{{ client.url }}" alt="{{ client.title }}">{{ client.title }}{% if client.organization is not empty %}&nbsp;&sol;&nbsp;{{ client.organization }}{% endif %}</a></p>
 
     {# IMPORTANT: UPDATE 'clients/_category' AS WELL IF YOU CHANGE THIS PARAGRAPH #}
     <p>To: {% if contact.prefix is not empty %}{{ contact.prefix }}&nbsp;{% endif %}{{ contact.firstName|title }}&nbsp;{{ contact.lastName|title }}{% if contact.suffix is not empty %}{% if contact.suffix == "I"|upper or contact.suffix == "II"|upper or contact.suffix == "III"|upper or contact.suffix == "IV"|upper or contact.suffix == "V"|upper %}&nbsp;{{ contact.suffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ contact.suffix }}&nbsp;{% endif %}{% endif %}{% if contact.contactTitle is not empty %}&sol;&nbsp;{{ contact.contactTitle|title }}{% endif %}</p>
@@ -39,7 +32,7 @@
     {% endif %}
   </div>
 
-  {# STATIC: thank you note #}
+  {# thank you note #}
   <div>
     {% set thankYou %}
       {% include 'proposals/_thank-you' %}
@@ -47,7 +40,7 @@
     {{ thankYou|markdown }}
   </div>
 
-  {# STATIC: working with IdeaBase #}
+  {# working with IdeaBase #}
   <div>
     <h2>Working with IdeaBase</h2>
 
@@ -57,24 +50,90 @@
     {{ workingWithIdeabase|markdown }}
   </div>
 
-  {# DYNAMIC: project scope #}
+  {# project scope #}
   <div>
     <h2>Scope of Work</h2>
 
-    <h3>Situation:</h3>
     {# extensive project description (situation) #}
+    <h3>Situation:</h3>
     <div>
       {{ entry.situation }}
     </div>
 
-    <h3>Proposed Project Elements and Associated Estimates:</h3>
     {# proposed project elements #}
+    <h3>Proposed Project Elements and Associated Estimates:</h3>
+    {# set variable to increment total cost as project elements are added #}
+    {% set totalCost, singleElementHours, singleElementPrice = 0, 0, 0 %}
 
-    {# estimated total and discounts if applicable #}
+    {% for block in entry.elements.all() %}
+      {% switch block.type %}
 
+        {% case "custom" %}
+          {% set singleElementHours = block.hoursAndCost[0].estimatedHours %}
+          {% set singleElementPrice = block.hoursAndCost[0].pricePerHour %}
+          {{ block.description }}
+          <table>
+            <tr>
+              <td>{{ block.hoursAndCost[0].estimatedHours }}</td>
+              <td>{{ block.hoursAndCost[0].pricePerHour|currency('USD', [], [], true) }}</td>
+            </tr>
+          </table>
+
+        {% case 'accessibility' %}
+          {% set singleElementHours = block.accessibility[0].estimatedHours %}
+          {% set singleElementPrice = block.accessibility[0].pricePerHour %}
+          <table>
+            <tr>
+              <td>{{ block.accessibility[0].description }}</td>
+              <td>{{ block.accessibility[0].estimatedHours }}</td>
+              <td>{{ block.accessibility[0].pricePerHour|currency('USD', [], [], true) }}</td>
+            </tr>
+          </table>
+          {% if entry.elements.all()|length > 1 %}{% set totalCost = totalCost + (block.accessibility[0].estimatedHours * block.accessibility[0].pricePerHour) %}{% endif %}
+
+        {% case 'viewbook' %}
+          {% set singleElementHours = block.viewbook[0].estimatedHours %}
+          {% set singleElementPrice = block.viewbook[0].pricePerHour %}
+          <table>
+            <tr>
+              <td>{{ block.viewbook[0].description }}</td>
+              <td>{{ block.viewbook[0].estimatedHours }}</td>
+              <td>{{ block.viewbook[0].pricePerHour|currency('USD', [], [], true) }}</td>
+            </tr>
+          </table>
+          {% if entry.elements.all()|length > 1 %}{% set totalCost = totalCost + (block.viewbook[0].estimatedHours * block.viewbook[0].pricePerHour) %}{% endif %}
+
+      {% endswitch %}
+    {% endfor %}
+
+    {# TODO: discounts for total cost #}
+
+    {# display total cost #}
+    <table>
+      <tr>
+        {% if entry.elements.all()|length > 1 %}<td>ESTIMATED TOTAL</td>{% else %}ESTIMATED TOTAL ({{singleElementHours}} hours at {{singleElementPrice|currency('USD', [], [], true)}}/hour){% endif %}
+        <td>{{ totalCost|currency('USD', [], [], true) }}</td>
+      </tr>
+    </table>
   </div>
 
-  {# STATIC: terms and conditions #}
+  {# suggested timeline #}
+  <div>
+    {% if entry.timeline is not empty %}
+      <h2>Suggested Timeline</h2>
+
+      <table>
+        {% for row in entry.timeline %}
+          <tr>
+            <td>{{ row.description }}</td>
+            <td>{{ row.time }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+  </div>
+
+  {# terms and conditions #}
   <div>
     <h2>Terms and Conditions</h2>
 
