@@ -9,16 +9,16 @@
 
   {# contacts #}
   <h2>
-    {% if category.contacts.all()|length < 2 %}Contact{% else %}Contacts{% endif %}
+    {% if category.contacts.all()|length == 1 %}Contact{% else %}Contacts{% endif %}
   </h2>
   {# begin contacts loop #}
   {% for block in category.contacts.all() %}
-    {% set count = 1 %}
-    {% if count > 1 %}
-      <h4>Contact {{ count }}</h4>
+    {% if category.contacts.all()|length > 1 %}
+      <h4>Contact {{ loop.index }}</h4>
     {% endif %}
+
     <div>
-      {# IMPORTANT: UPDATE 'proposals/_entry' AS WELL IF YOU CHANGE THIS PARAGRAPH - prints prefix if exists, first name, last name, suffix if exists, title if exists #}
+      {# IMPORTANT: UPDATE 'proposals/_entry' AS WELL IF YOU CHANGE THIS PARAGRAPH #}
       <p>{% if block.prefix is not empty %}{{ block.prefix }}&nbsp;{% endif %}{{ block.firstName|title }}&nbsp;{{ block.lastName|title }}{% if block.suffix is not empty %}{% if block.suffix == "I"|upper or block.suffix == "II"|upper or block.suffix == "III"|upper or block.suffix == "IV"|upper or block.suffix == "V"|upper %}&nbsp;{{ block.suffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ block.suffix }}&nbsp;{% endif %}{% endif %}{% if block.contactTitle is not empty %}&sol;&nbsp;{{ block.contactTitle|title }}{% endif %}</p>
 
       {% if block.phoneNumber is not empty %}
@@ -26,7 +26,7 @@
       {% endif %}
 
       {% if block.email is not empty %}
-        <p>{{ block.email }}</p>
+        <a href="mailto:{{ block.email }}" alt="Email {{block.email}}" title="Email {{block.email}}">{{ block.email }}</a>
       {% endif %}
 
       {% if block.otherInformation is not empty %}
@@ -39,13 +39,12 @@
   {# addresses #}
   {% if category.addresses.all()|length > 0 %}
     <h2>
-      {% if category.addresses.all()|length < 2 %}Address{% else %}Addresses{% endif %}
+      {% if category.addresses.all()|length == 1 %}Address{% else %}Addresses{% endif %}
     </h2>
     {# begin addresses loop #}
     {% for block in category.addresses.all() %}
-      {% set count = 1 %}
-      {% if count > 1 %}
-        <h4>Address {{ count }}</h4>
+      {% if category.addresses.all()|length > 1 %}
+        <h4>Address {{ loop.index }}</h4>
       {% endif %}
 
       <div>
@@ -56,6 +55,10 @@
         {% endif %}
 
         <p>{{ block.city|title }}, {{ block.state|upper }} {{ block.zipCode }}</p>
+
+        {% set gMapsQuery = (block.address1 ~ ' ' ~ block.address2 ~ ', ' ~ block.city ~ ' ' ~ block.state ~ ' ' ~ block.zipCode)|url_encode %}
+
+        <a href="https://www.google.com/maps/search/?api=1&query={{ gMapsQuery }}" alt="Open in Google Maps" title="Open in Google Maps" target="_blank">Google Maps</a>
 
         {% if block.description is not empty %}
           <p>{{ block.description }}</p>
@@ -70,9 +73,10 @@
     <h2>
       {% if craft.categories.group('clients').title(category.title).all()|length == 1 %}Proposal{% else %}Proposals{% endif %}
     </h2>
+
     {# begin proposals loop #}
     {% for entry in craft.entries.section('proposals').relatedTo(category).all() %}
-        {{ entry.getLink() }}
+      {{ entry.getLink() }}
     {% endfor %}
     {# end proposals loop #}
   {% endif %}
