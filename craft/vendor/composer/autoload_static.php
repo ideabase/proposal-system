@@ -37,10 +37,6 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
         ),
-        'n' => 
-        array (
-            'newism\\fields\\' => 14,
-        ),
         'm' => 
         array (
             'mikehaertl\\shellcommand\\' => 24,
@@ -64,7 +60,6 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         ),
         'b' => 
         array (
-            'barrelstrength\\sproutfields\\' => 28,
             'barrelstrength\\sproutbase\\' => 26,
         ),
         'Z' => 
@@ -190,10 +185,6 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
         ),
-        'newism\\fields\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/newism/craft3-fields/src',
-        ),
         'mikehaertl\\shellcommand\\' => 
         array (
             0 => __DIR__ . '/..' . '/mikehaertl/php-shellcommand/src',
@@ -229,10 +220,6 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
-        ),
-        'barrelstrength\\sproutfields\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src',
         ),
         'barrelstrength\\sproutbase\\' => 
         array (
@@ -2308,36 +2295,6 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         'barrelstrength\\sproutbase\\services\\Settings' => __DIR__ . '/..' . '/barrelstrength/sprout-base/src/services/Settings.php',
         'barrelstrength\\sproutbase\\web\\assets\\cp\\CpAsset' => __DIR__ . '/..' . '/barrelstrength/sprout-base/src/web/assets/cp/CpAsset.php',
         'barrelstrength\\sproutbase\\web\\assets\\groups\\GroupsAsset' => __DIR__ . '/..' . '/barrelstrength/sprout-base/src/web/assets/groups/GroupsAsset.php',
-        'barrelstrength\\sproutfields\\SproutFields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/SproutFields.php',
-        'barrelstrength\\sproutfields\\fields\\Address' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/Address.php',
-        'barrelstrength\\sproutfields\\fields\\Email' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/Email.php',
-        'barrelstrength\\sproutfields\\fields\\Gender' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/Gender.php',
-        'barrelstrength\\sproutfields\\fields\\Name' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/Name.php',
-        'barrelstrength\\sproutfields\\fields\\Notes' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/Notes.php',
-        'barrelstrength\\sproutfields\\fields\\Phone' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/Phone.php',
-        'barrelstrength\\sproutfields\\fields\\Predefined' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/Predefined.php',
-        'barrelstrength\\sproutfields\\fields\\RegularExpression' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/RegularExpression.php',
-        'barrelstrength\\sproutfields\\fields\\Url' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/fields/Url.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\Address' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/Address.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\Email' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/Email.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\EmailDropdown' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/EmailDropdown.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\Gender' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/Gender.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\Notes' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/Notes.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\Phone' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/Phone.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\Predefined' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/Predefined.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\RegularExpression' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/RegularExpression.php',
-        'barrelstrength\\sproutfields\\integrations\\sproutimport\\importers\\fields\\Url' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/integrations/sproutimport/importers/fields/Url.php',
-        'barrelstrength\\sproutfields\\migrations\\Install' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/Install.php',
-        'barrelstrength\\sproutfields\\migrations\\m180221_161522_notes_fields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180221_161522_notes_fields.php',
-        'barrelstrength\\sproutfields\\migrations\\m180221_161523_phone_fields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180221_161523_phone_fields.php',
-        'barrelstrength\\sproutfields\\migrations\\m180221_161524_email_select_fields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180221_161524_email_select_fields.php',
-        'barrelstrength\\sproutfields\\migrations\\m180221_161525_regular_expression_fields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180221_161525_regular_expression_fields.php',
-        'barrelstrength\\sproutfields\\migrations\\m180221_161526_link_fields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180221_161526_link_fields.php',
-        'barrelstrength\\sproutfields\\migrations\\m180221_161527_email_fields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180221_161527_email_fields.php',
-        'barrelstrength\\sproutfields\\migrations\\m180221_161528_hidden_fields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180221_161528_hidden_fields.php',
-        'barrelstrength\\sproutfields\\migrations\\m180221_161529_invisible_fields' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180221_161529_invisible_fields.php',
-        'barrelstrength\\sproutfields\\migrations\\m180228_161529_settings_to_null' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180228_161529_settings_to_null.php',
-        'barrelstrength\\sproutfields\\migrations\\m180328_073816_create_address_table' => __DIR__ . '/..' . '/barrelstrength/sprout-fields/src/migrations/m180328_073816_create_address_table.php',
         'cebe\\markdown\\GithubMarkdown' => __DIR__ . '/..' . '/cebe/markdown/GithubMarkdown.php',
         'cebe\\markdown\\Markdown' => __DIR__ . '/..' . '/cebe/markdown/Markdown.php',
         'cebe\\markdown\\MarkdownExtra' => __DIR__ . '/..' . '/cebe/markdown/MarkdownExtra.php',
@@ -3152,24 +3109,6 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         'libphonenumber\\prefixmapper\\PrefixFileReader' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/prefixmapper/PrefixFileReader.php',
         'libphonenumber\\prefixmapper\\PrefixTimeZonesMap' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/prefixmapper/PrefixTimeZonesMap.php',
         'mikehaertl\\shellcommand\\Command' => __DIR__ . '/..' . '/mikehaertl/php-shellcommand/src/Command.php',
-        'newism\\fields\\NsmFields' => __DIR__ . '/..' . '/newism/craft3-fields/src/NsmFields.php',
-        'newism\\fields\\assetbundles\\addressfield\\AddressFieldAsset' => __DIR__ . '/..' . '/newism/craft3-fields/src/assetbundles/addressfield/AddressFieldAsset.php',
-        'newism\\fields\\assetbundles\\embedfield\\EmbedFieldAsset' => __DIR__ . '/..' . '/newism/craft3-fields/src/assetbundles/embedfield/EmbedFieldAsset.php',
-        'newism\\fields\\controllers\\EmbedController' => __DIR__ . '/..' . '/newism/craft3-fields/src/controllers/EmbedController.php',
-        'newism\\fields\\fields\\Address' => __DIR__ . '/..' . '/newism/craft3-fields/src/fields/Address.php',
-        'newism\\fields\\fields\\Email' => __DIR__ . '/..' . '/newism/craft3-fields/src/fields/Email.php',
-        'newism\\fields\\fields\\Embed' => __DIR__ . '/..' . '/newism/craft3-fields/src/fields/Embed.php',
-        'newism\\fields\\fields\\Gender' => __DIR__ . '/..' . '/newism/craft3-fields/src/fields/Gender.php',
-        'newism\\fields\\fields\\PersonName' => __DIR__ . '/..' . '/newism/craft3-fields/src/fields/PersonName.php',
-        'newism\\fields\\fields\\Telephone' => __DIR__ . '/..' . '/newism/craft3-fields/src/fields/Telephone.php',
-        'newism\\fields\\models\\AddressModel' => __DIR__ . '/..' . '/newism/craft3-fields/src/models/AddressModel.php',
-        'newism\\fields\\models\\EmbedModel' => __DIR__ . '/..' . '/newism/craft3-fields/src/models/EmbedModel.php',
-        'newism\\fields\\models\\GenderModel' => __DIR__ . '/..' . '/newism/craft3-fields/src/models/GenderModel.php',
-        'newism\\fields\\models\\PersonNameModel' => __DIR__ . '/..' . '/newism/craft3-fields/src/models/PersonNameModel.php',
-        'newism\\fields\\models\\Settings' => __DIR__ . '/..' . '/newism/craft3-fields/src/models/Settings.php',
-        'newism\\fields\\models\\TelephoneModel' => __DIR__ . '/..' . '/newism/craft3-fields/src/models/TelephoneModel.php',
-        'newism\\fields\\services\\Embed' => __DIR__ . '/..' . '/newism/craft3-fields/src/services/Embed.php',
-        'newism\\fields\\validators\\JsonValidator' => __DIR__ . '/..' . '/newism/craft3-fields/src/validators/JsonValidator.php',
         'yii\\BaseYii' => __DIR__ . '/..' . '/yiisoft/yii2/BaseYii.php',
         'yii\\base\\Action' => __DIR__ . '/..' . '/yiisoft/yii2/base/Action.php',
         'yii\\base\\ActionEvent' => __DIR__ . '/..' . '/yiisoft/yii2/base/ActionEvent.php',

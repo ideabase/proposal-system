@@ -37,63 +37,6 @@
         "description": "Common libraries for Sprout Plugins for Craft CMS"
     },
     {
-        "name": "barrelstrength/sprout-fields",
-        "version": "3.1.2",
-        "version_normalized": "3.1.2.0",
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barrelstrength/craft-sprout-fields/zipball/55286761cdcc110fcf4375dfeb67f5f925cfc5db",
-            "reference": "55286761cdcc110fcf4375dfeb67f5f925cfc5db",
-            "shasum": ""
-        },
-        "require": {
-            "barrelstrength/sprout-base": "^2.0.0",
-            "craftcms/cms": "^3.0.0"
-        },
-        "time": "2018-05-17T17:47:03+00:00",
-        "type": "craft-plugin",
-        "extra": {
-            "name": "Sprout Fields",
-            "handle": "sprout-fields",
-            "developer": "Barrel Strength",
-            "developerUrl": "https://barrelstrengthdesign.com",
-            "documentationUrl": "https://sprout.barrelstrengthdesign.com/craft-plugins/fields",
-            "changelogUrl": "https://raw.githubusercontent.com/BarrelStrength/sprout-fields/master/CHANGELOG.md",
-            "downloadUrl": "https://github.com/BarrelStrength/sprout-fields/archive/master.zip",
-            "class": "barrelstrength\\sproutfields\\SproutFields"
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "barrelstrength\\sproutfields\\": "src/"
-            }
-        },
-        "license": [
-            "proprietary"
-        ],
-        "authors": [
-            {
-                "name": "Barrel Strength",
-                "homepage": "https://www.barrelstrengthdesign.com/"
-            }
-        ],
-        "description": "International, Craft-friendly field types.",
-        "keywords": [
-            "cms",
-            "craft",
-            "craftcms",
-            "fields",
-            "sprout fields"
-        ],
-        "support": {
-            "email": "sprout@barrelstrengthdesign.com",
-            "issues": "https://github.com/barrelstrength/sprout-fields/issues?state=open",
-            "source": "https://github.com/barrelstrength/sprout-fields",
-            "docs": "https://sprout.barrelstrengthdesign.com/craft-plugins/fields/docs",
-            "rss": "https://github.com/barrelstrength/sprout-fields/commits/v2.atom"
-        }
-    },
-    {
         "name": "cebe/markdown",
         "version": "1.1.2",
         "version_normalized": "1.1.2.0",
@@ -1779,66 +1722,6 @@
         "keywords": [
             "shell"
         ]
-    },
-    {
-        "name": "newism/craft3-fields",
-        "version": "0.0.10",
-        "version_normalized": "0.0.10.0",
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/newism/craft3-fields/zipball/0671350c153ced3e4e6742c299fcd7cbde57966a",
-            "reference": "0671350c153ced3e4e6742c299fcd7cbde57966a",
-            "shasum": ""
-        },
-        "require": {
-            "commerceguys/addressing": "^0.8.4",
-            "craftcms/cms": "^3.0.0-RC13",
-            "embed/embed": "^3.0",
-            "giggsey/libphonenumber-for-php": "^8.3",
-            "symfony/intl": "^3.3"
-        },
-        "time": "2018-03-01T11:31:24+00:00",
-        "type": "craft-plugin",
-        "extra": {
-            "name": "NSM Fields",
-            "handle": "nsm-fields",
-            "schemaVersion": "1.0.0",
-            "hasCpSettings": true,
-            "hasCpSection": false,
-            "changelogUrl": "https://raw.githubusercontent.com/newism/craft3-fields/master/CHANGELOG.md",
-            "class": "newism\\fields\\NsmFields"
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "newism\\fields\\": "src/"
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Newism",
-                "homepage": "http://newism.com.au"
-            },
-            {
-                "name": "Leevi Graham",
-                "homepage": "http://leevigraham.com"
-            }
-        ],
-        "description": "Address, telephone and email fields for CraftCMS 3.x",
-        "keywords": [
-            "cms",
-            "craft",
-            "craft-plugin",
-            "craftcms",
-            "nsm-fields"
-        ],
-        "support": {
-            "docs": "https://github.com/newism/craft3-fields/blob/master/README.md",
-            "issues": "https://github.com/newism/craft3-fields/issues"
-        }
     },
     {
         "name": "paragonie/random_compat",
