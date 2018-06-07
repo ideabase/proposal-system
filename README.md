@@ -1,4 +1,4 @@
-# proposal-system
+# Proposal System
 
 >  IdeaBase's online proposal system
 
