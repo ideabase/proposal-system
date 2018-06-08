@@ -1,6 +1,6 @@
-# Proposal System
+# Client Proposal System
 
->  IdeaBase's online proposal system
+>  IdeaBase's online client proposal system
 
 ## Setup Instructions
 

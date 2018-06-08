@@ -7,10 +7,10 @@
   {# set client = user selected entry category #}
   {% set client = craft.categories.relatedTo(entry).one() %}
 
-  {# set contact = first contact from the client #}
+  {# set contact = first contact listed in client entry #}
   {% set contact = client.contacts.one() %}
 
-  {# set address = first address from the client #}
+  {# set address = first address listed in client entry #}
   {% set address = client.addresses.one() %}
 
   {# TODO: add ideabase logo at top of proposal #}
@@ -22,7 +22,7 @@
   <div>
     <p>For: <a href="{{ client.url }}" alt="{{ client.title }}">{{ client.title }}{% if client.organization is not empty %}&nbsp;&sol;&nbsp;{{ client.organization }}{% endif %}</a></p>
 
-    {# IMPORTANT: UPDATE 'clients/_category' AS WELL IF YOU CHANGE THIS PARAGRAPH #}
+    {# IMPORTANT: UPDATE 'clients/_category' AS WELL IF YOU CHANGE HOW CONTACT NAMES ARE DISPLAYED #}
     <p>To: {% if contact.prefix is not empty %}{{ contact.prefix }}&nbsp;{% endif %}{{ contact.firstName|title }}&nbsp;{{ contact.lastName|title }}{% if contact.suffix is not empty %}{% if contact.suffix == "I"|upper or contact.suffix == "II"|upper or contact.suffix == "III"|upper or contact.suffix == "IV"|upper or contact.suffix == "V"|upper %}&nbsp;{{ contact.suffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ contact.suffix }}&nbsp;{% endif %}{% endif %}{% if contact.contactTitle is not empty %}&sol;&nbsp;{{ contact.contactTitle|title }}{% endif %}</p>
 
     <p>From: IdeaBase, a Research-Based Design Agency at Kent State University</p>
@@ -132,6 +132,13 @@
       </table>
     {% endif %}
   </div>
+
+  {# TODO: allowance for client revisions #}
+  {# default allow 2-3 client revisions #}
+
+  {# TODO: estimate includes print coordination, not printing costs #}
+
+  {# TODO: signature field #}
 
   {# terms and conditions #}
   <div>
