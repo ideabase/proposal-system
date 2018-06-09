@@ -1,6 +1,6 @@
 # Client Proposal System
 
->  IdeaBase's online client proposal system
+>  IdeaBase's client proposal system
 
 ## Setup Instructions
 
@@ -25,28 +25,20 @@
 ### Composer
 
 1.  In a terminal or shell, use cURL to download Composer as a .phar (PHP archive) file in your home directory
-
     ```sh
     curl -sS <https://getcomposer.org/installer> | php ~/
     ```
-
 2.  Move the .phar file to the local computer binaries folder, and enter your password when prompted by the `sudo` command
-
     ```sh
     sudo mv ~/composer.phar /usr/local/bin/
     ```
-
 3.  Establish a global alias for Composer in your shell profile
-
     ```sh
     vim ~/.bash_profile
     alias composer="php /usr/local/bin/composer.phar"
     ```
-
 4.  Execute `composer` in your project to make sure the alias works globally
-
 5.  If there are any issues with plugins, composer's PHP version can be specified in `craft/composer.json` and project dependencies can be updated with `composer update`
-
     ```json
     "config": {
       "platform": {
@@ -71,7 +63,6 @@
 ### SASS
 
 -   Install SASS with RubyGems (Ruby is preinstalled on OSX)
-
     ```sh
     gem install sass
     ```
@@ -80,11 +71,9 @@
 
 1.  [Install Node.js](https://nodejs.org/en/download/)
 2.  In a terminal or shell, install Grunt globally with npm
-
     ```sh
     npm install -g grunt-cli
     ```
-
 4.  Navigate to your project's web document root (the `public/` or `html/` folder) and execute the command `grunt` to ensure that Grunt is working properly
 
 ##### Grunt will do the following:
