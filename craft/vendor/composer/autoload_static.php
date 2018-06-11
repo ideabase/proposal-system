@@ -53,6 +53,7 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         array (
             'creocoder\\nestedsets\\' => 21,
             'craftcms\\oauth2\\client\\' => 23,
+            'craft\\redactorclips\\' => 20,
             'craft\\redactor\\' => 15,
             'craft\\composer\\' => 15,
             'craft\\' => 6,
@@ -204,6 +205,10 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         'craftcms\\oauth2\\client\\' => 
         array (
             0 => __DIR__ . '/..' . '/craftcms/oauth2-craftid/src',
+        ),
+        'craft\\redactorclips\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/craftcms/redactor-clips/src',
         ),
         'craft\\redactor\\' => 
         array (
@@ -2848,6 +2853,9 @@ class ComposerStaticInit4a23ebfdd58366b56bd653faf2e70dd0
         'craft\\redactor\\events\\RegisterPluginPathsEvent' => __DIR__ . '/..' . '/craftcms/redactor/src/events/RegisterPluginPathsEvent.php',
         'craft\\redactor\\migrations\\Install' => __DIR__ . '/..' . '/craftcms/redactor/src/migrations/Install.php',
         'craft\\redactor\\migrations\\m180430_204710_remove_old_plugins' => __DIR__ . '/..' . '/craftcms/redactor/src/migrations/m180430_204710_remove_old_plugins.php',
+        'craft\\redactorclips\\Asset' => __DIR__ . '/..' . '/craftcms/redactor-clips/src/Asset.php',
+        'craft\\redactorclips\\Plugin' => __DIR__ . '/..' . '/craftcms/redactor-clips/src/Plugin.php',
+        'craft\\redactorclips\\models\\Settings' => __DIR__ . '/..' . '/craftcms/redactor-clips/src/models/Settings.php',
         'craft\\search\\SearchQuery' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQuery.php',
         'craft\\search\\SearchQueryTerm' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQueryTerm.php',
         'craft\\search\\SearchQueryTermGroup' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQueryTermGroup.php',

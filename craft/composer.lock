@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b249b840c5d823bbd14e8ec18df0208c",
+    "content-hash": "ed3f6e1699182af1d884d64d656ac9f1",
     "packages": [
         {
             "name": "barrelstrength/sprout-base",
@@ -655,6 +655,57 @@
                 "rss": "https://github.com/craftcms/redactor/commits/master.atom"
             },
             "time": "2018-05-15T21:58:54+00:00"
+        },
+        {
+            "name": "craftcms/redactor-clips",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/redactor-clips/zipball/186639c234f320b6ca3cfaba64375be342c20865",
+                "reference": "186639c234f320b6ca3cfaba64375be342c20865",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "~3.0.0-beta.26"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Redactor Clips",
+                "handle": "redactor-clips",
+                "changelogUrl": "https://raw.githubusercontent.com/craftcms/redactor-clips/v2/CHANGELOG.md",
+                "downloadUrl": "https://github.com/craftcms/redactor-clips/archive/v2.zip"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\redactorclips\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "This plugin Adds Redactor’s “Clips” plugin to Rich Text fields in Craft, which lets you insert predefined code snippets.",
+            "keywords": [
+                "clips",
+                "cms",
+                "craftcms",
+                "html",
+                "redactor",
+                "yii2"
+            ],
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/redactor-clips/issues?state=open",
+                "source": "https://github.com/craftcms/redactor-clips",
+                "docs": "https://github.com/craftcms/redactor-clips",
+                "rss": "https://github.com/craftcms/redactor-clips/commits/v2.atom"
+            },
+            "time": "2018-04-13T06:56:02+00:00"
         },
         {
             "name": "craftcms/server-check",

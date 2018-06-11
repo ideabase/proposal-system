@@ -2,6 +2,8 @@
 
 {% extends '_layout' %}
 
+{% set suffixes = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'] %}
+
 {% block content %}
 
   {# page title #}
@@ -14,19 +16,33 @@
   {# begin contacts loop #}
   {% for block in category.contacts.all() %}
     {% if category.contacts.all()|length > 1 %}
-      <h4>Contact {{ loop.index }}</h4>
+      <h4>Contact&nbsp;{{ loop.index }}</h4>
     {% endif %}
 
     <div>
       {# IMPORTANT: UPDATE 'proposals/_entry' AS WELL IF YOU CHANGE HOW CONTACT NAMES ARE DISPLAYED #}
-      <p>{% if block.prefix is not empty %}{{ block.prefix }}&nbsp;{% endif %}{{ block.firstName|title }}&nbsp;{{ block.lastName|title }}{% if block.suffix is not empty %}{% if block.suffix == "I"|upper or block.suffix == "II"|upper or block.suffix == "III"|upper or block.suffix == "IV"|upper or block.suffix == "V"|upper %}&nbsp;{{ block.suffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ block.suffix }}&nbsp;{% endif %}{% endif %}{% if block.contactTitle is not empty %}&sol;&nbsp;{{ block.contactTitle|title }}{% endif %}</p>
+      <p>{%- if block.prefix is not empty -%}
+        {{- block.prefix -}}&nbsp;
+        {%- endif -%}
+        {{- block.firstName|title -}}&nbsp;
+        {{- block.lastName|title -}}
+        {%- if block.suffix is not empty -%}
+          {%- if block.suffix|upper in suffixes -%}
+            &nbsp;{{- block.suffix|upper -}}&nbsp;
+          {%- else -%}
+            &comma;&nbsp;{{- block.suffix -}}&nbsp;
+          {%- endif -%}
+        {%- endif -%}
+        {%- if block.contactTitle is not empty -%}
+          &sol;&nbsp;{{- block.contactTitle|title -}}
+        {%- endif -%}</p>
 
       {% if block.phoneNumber is not empty %}
         <p>{{ block.phoneNumber }}</p>
       {% endif %}
 
       {% if block.email is not empty %}
-        <a href="mailto:{{ block.email }}" alt="Email {{block.email}}" title="Email {{block.email}}">{{ block.email }}</a>
+        <a href="mailto:{{ block.email }}" alt="Email {{ block.email }}" title="Email {{ block.email }}">{{ block.email }}</a>
       {% endif %}
 
       {% if block.otherInformation is not empty %}
@@ -44,7 +60,7 @@
     {# begin addresses loop #}
     {% for block in category.addresses.all() %}
       {% if category.addresses.all()|length > 1 %}
-        <h4>Address {{ loop.index }}</h4>
+        <h4>Address&nbsp;{{ loop.index }}</h4>
       {% endif %}
 
       <div>
@@ -54,7 +70,7 @@
           <p>{{ block.address2|title }}</p>
         {% endif %}
 
-        <p>{{ block.city|title }}, {{ block.state|upper }} {{ block.zipCode }}</p>
+        <p>{{ block.city|title }}&comma;&nbsp;{{ block.state|upper }}&nbsp;{{ block.zipCode }}</p>
 
         {% set gMapsQuery = (block.address1 ~ ' ' ~ block.address2 ~ ', ' ~ block.city ~ ' ' ~ block.state ~ ' ' ~ block.zipCode)|url_encode %}
 

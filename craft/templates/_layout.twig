@@ -1,3 +1,4 @@
+{% spaceless %}
 
 {#
  # Layout template
@@ -12,7 +13,7 @@
 	<meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<title>{% if title is defined %}{{ title }}&nbsp;-&nbsp;{% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
 
   {# Render Favicons #}
@@ -48,12 +49,14 @@
     })(window,document,'script','{{ siteUrl }}assets/js/min/analytics.js','ga');
       ga('create', 'UA-########-#', 'auto');
       ga('send', 'pageview');
-    </script>
+  </script>
 
   {% if craft.app.config.general.devMode %}
-  {# Live Reload - For local environment only #}
-  <script src="//localhost:35729/livereload.js"></script>
+	  {# Live Reload - For local environment only #}
+	  <script src="//localhost:35729/livereload.js"></script>
   {% endif %}
 
 </body>
 </html>
+
+{% endspaceless %}
