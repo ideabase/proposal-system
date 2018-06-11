@@ -20,34 +20,34 @@
   <h1>Proposal of Engagement</h1>
 
   <div>
-    <p>For: <a href="{{ client.url }}" alt="{{ client.title }}">{{ client.title }}{% if client.organization is not empty %}&nbsp;&sol;&nbsp;{{ client.organization }}{% endif %}</a></p>
+    <p>
+      For: <a href="{{ client.url }}" alt="{{ client.title }}">{{ client.title }}{% if client.organization is not empty %}&nbsp;&sol;&nbsp;{{ client.organization }}{% endif %}</a>
+    </p>
 
     {# IMPORTANT: UPDATE 'clients/_category' AS WELL IF YOU CHANGE HOW CONTACT NAMES ARE DISPLAYED #}
-    <p>To: {% if contact.prefix is not empty %}{{ contact.prefix }}&nbsp;{% endif %}{{ contact.firstName|title }}&nbsp;{{ contact.lastName|title }}{% if contact.suffix is not empty %}{% if contact.suffix == "I"|upper or contact.suffix == "II"|upper or contact.suffix == "III"|upper or contact.suffix == "IV"|upper or contact.suffix == "V"|upper %}&nbsp;{{ contact.suffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ contact.suffix }}&nbsp;{% endif %}{% endif %}{% if contact.contactTitle is not empty %}&sol;&nbsp;{{ contact.contactTitle|title }}{% endif %}</p>
+    <p>
+      To: {% if contact.prefix is not empty %}{{ contact.prefix }}&nbsp;{% endif %}{{ contact.firstName|title }}&nbsp;{{ contact.lastName|title }}{% if contact.suffix is not empty %}{% if contact.suffix == "I"|upper or contact.suffix == "II"|upper or contact.suffix == "III"|upper or contact.suffix == "IV"|upper or contact.suffix == "V"|upper %}&nbsp;{{ contact.suffix|upper }}&nbsp;{% else %}&comma;&nbsp;{{ contact.suffix }}&nbsp;{% endif %}{% endif %}{% if contact.contactTitle is not empty %}&sol;&nbsp;{{ contact.contactTitle|title }}{% endif %}
+    </p>
 
     <p>From: IdeaBase, a Research-Based Design Agency at Kent State University</p>
 
     {% if entry.date is not empty %}
-      <p>Date: {{ entry.date }}</p>
+      <p>
+        Date: {{ entry.date }}
+      </p>
     {% endif %}
   </div>
 
   {# thank you note #}
   <div>
-    {% set thankYou %}
-      {% include 'proposals/_thank-you' %}
-    {% endset %}
-    {{ thankYou|markdown }}
+    {% include 'proposals/_thank_you' %}
   </div>
 
   {# working with IdeaBase #}
   <div>
     <h2>Working with IdeaBase</h2>
 
-    {% set workingWithIdeabase %}
-      {% include 'proposals/_working-with-ideabase' %}
-    {% endset %}
-    {{ workingWithIdeabase|markdown }}
+    {% include 'proposals/_working_with_ideabase' %}
   </div>
 
   {# project scope #}
@@ -117,6 +117,11 @@
     </table>
   </div>
 
+  {# note on client revisions #}
+  <div>
+    {% include 'proposals/_client_revisions' %}
+  </div>
+
   {# suggested timeline #}
   <div>
     {% if entry.timeline is not empty %}
@@ -144,10 +149,7 @@
   <div>
     <h2>Terms and Conditions</h2>
 
-    {% set terms %}
-      {% include 'proposals/_terms' %}
-    {% endset %}
-    {{ terms|markdown }}
+    {% include 'proposals/_terms' %}
   </div>
 
 {% endblock %}
