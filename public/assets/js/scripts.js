@@ -1,3 +1,0 @@
-// JavaScript Goes Here //
-
-//Script//

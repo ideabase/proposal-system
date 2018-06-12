@@ -2,26 +2,29 @@
 
 {% extends '_layout' %}
 
+{# set client = user selected entry category #}
+{% set client = craft.categories.relatedTo(entry).one() %}
+
+{# set contact = first contact listed in client category #}
+{% set contact = client.contacts.one() %}
+
+{# set address = first address listed in client category #}
+{% set address = client.addresses.one() %}
+
+{% set suffixes = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'] %}
+
 {% block content %}
 
   <h1>{{ entry.title }}</h1>
 
-  <p>Project ID: {{ entry.projectId }}</p>
+  {% if entry.projectId|length %}
+    <p>Project ID: {{ entry.projectId }}</p>
+  {% endif %}
 
+  {# start proposal document #}
   <article>
-    {# set client = user selected entry category #}
-    {% set client = craft.categories.relatedTo(entry).one() %}
 
-    {# set contact = first contact listed in client entry #}
-    {% set contact = client.contacts.one() %}
-
-    {# set address = first address listed in client entry #}
-    {% set address = client.addresses.one() %}
-
-    {% set suffixes = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'] %}
-
-    {# TODO: add ideabase logo at top of proposal #}
-    {# TODO: checkbox for glyphix logo #}
+    {# TODO: dropdown for ideabase or glyphix project that displays associated logos #}
 
     {# proposal header #}
     <h1>Proposal of Engagement</h1>
@@ -31,7 +34,7 @@
 
       {# IMPORTANT: UPDATE 'clients/_category' AS WELL IF YOU CHANGE HOW CONTACT NAMES ARE DISPLAYED #}
       <p>To:&nbsp;
-        {%- if contact.prefix|length %}
+        {%- if contact.prefix|length -%}
           {{-  contact.prefix -}}&nbsp;
         {%- endif -%}
         {{-  contact.firstName -}}&nbsp;
@@ -52,9 +55,9 @@
       <p>Date:&nbsp;{{ entry.date }}</p>
     </div>
 
-    {# thank you note global #}
+    {# thank you note #}
     <div>
-      {% include 'proposals/_thank_you' %}
+      <p>Thank you for engaging IdeaBase to prepare a quotation for {{ client.title }}, {{ address.address1 }}{% if address.address2 is not empty %}, {{ address.address2 }}{% endif %}, {{ address.city }} {{ address.state|upper }} {{ address.zipCode }}. IdeaBase is an initiative within the College of Communication and Information at Kent State University. This Proposal of Engagement will outline the scope of our engagement and the projected hours and costs associated with its completion.</p>
     </div>
 
     {# working with IdeaBase global #}
@@ -79,7 +82,7 @@
       {# proposed project elements #}
       <h3>Proposed Project Elements and Associated Estimates:</h3>
       {# set variable to increment total cost as project elements are added #}
-      {% set totalPrice, singleElementHours = 0, 0 %}
+      {% set totalCost, singleElementHours = 0, 0 %}
 
       {% for block in entry.elements.all() %}
         {% set singleElementHours = block.estimatedHours %}
@@ -90,7 +93,7 @@
             <td>{{ entry.pricePerHour.value|currency('USD', [], [], true) }}</td>
           </tr>
         </table>
-        {% set totalPrice = totalPrice + (singleElementHours * entry.pricePerHour.value) %}
+        {% set totalCost = totalCost + (singleElementHours * entry.pricePerHour.value) %}
       {% endfor %}
 
       {# suggested timeline #}
@@ -109,31 +112,78 @@
         </div>
       {% endif %}
 
-      {# TODO: discounts for total cost #}
-
       {# display total cost #}
-      <table>
-        <tr>
-          {% if entry.elements.all()|length > 1 %}<td>ESTIMATED TOTAL</td>{% else %}ESTIMATED TOTAL ({{ singleElementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}
-          <td>{{ totalPrice|currency('USD', [], [], true) }}</td>
-        </tr>
-      </table>
+      <div>
+        <table>
+          {% if entry.discount|length %}
+            <tr>
+              <td>{% if entry.elements.all()|length > 1 %}ESTIMATED TOTAL{% else %}ESTIMATED TOTAL ({{ singleElementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
+              <td>{{ (totalCost)|currency('USD', [], [], true) }}</td>
+            </tr>
+            <tr>
+              <td>Discount ({{ entry.discount }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour)</td>
+              <td>{{ (entry.discount * entry.pricePerHour.value)|currency('USD', [], [], true) }}
+            </tr>
+            {% set totalCost = totalCost - (entry.discount * entry.pricePerHour.value) %}
+            <tr>
+              <td>{% if entry.elements.all()|length > 1 %}ESTIMATED & DISCOUNTED TOTAL{% else %}ESTIMATED & DISCOUNTED TOTAL ({{ singleElementHours - entry.discount }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
+              <td>{{ (totalCost)|currency('USD', [], [], true) }}</td>
+            </tr>
+          {% else %}
+            <tr>
+              <td>{% if entry.elements.all()|length > 1 %}ESTIMATED TOTAL{% else %}ESTIMATED TOTAL ({{ singleElementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
+              <td>{{ totalCost|currency('USD', [], [], true) }}</td>
+            </tr>
+          {% endif %}
+        </table>
+      </div>
     </div>
 
-    {# TODO: allowance for client revisions #}
-    {# default allow 2-3 client revisions #}
+    {# additional costs #}
+    {% if entry.additionalCosts|length %}
+      <h3>Additional Costs</h3>
 
-    {# TODO: estimate includes print coordination, not printing costs #}
+      <div>
+        <table>
+          {% for row in entry.additionalCosts %}
+            <tr>
+              <td>{{ row.description }}</td>
+              <td>{{ row.estimatedCost }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    {% endif %}
+
+    {# printing costs #}
+    {% if entry.printingCosts|length %}
+      <div>
+        <p>Please note this estimate includes print coordination only, not actual printing costs.</p>
+      </div>
+    {% endif %}
+
+    {# allowance for client revisions #}
+    {% if entry.clientRevisions|length %}
+      <div>
+        <p>Please note this estimate allows for 2-3 client revisions. If more than 2-3 sets of client revisions are needed, additional hours will be added to the final invoice.</p>
+      </div>
+    {% endif %}
+
+    {# proposal agreement global #}
+    <div>
+      {{ proposalAgreement.redactor }}
+    </div>
 
     {# TODO: signature field #}
 
-    {# terms and conditions global#}
+    {# terms and conditions global #}
     <div>
       <h2>Terms and Conditions</h2>
 
       {{ proposalTerms.redactor }}
     </div>
   </article>
+  {# end proposal document #}
 
 {% endblock %}
 {# end content block #}

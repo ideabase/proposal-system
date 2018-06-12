@@ -1,5 +1,8 @@
 {# /templates/clients/index.twig #}
 
+{% requireLogin %}
+{% requirePermission "accessCp" %}
+
 {% extends '_layout' %}
 
 {# set clients = list of clients ordered by title #}

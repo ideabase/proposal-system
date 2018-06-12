@@ -1,5 +1,8 @@
 {# /templates/clients/_category.twig #}
 
+{% requireLogin %}
+{% requirePermission "accessCp" %}
+
 {% extends '_layout' %}
 
 {% set suffixes = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'] %}

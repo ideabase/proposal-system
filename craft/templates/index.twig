@@ -17,6 +17,9 @@
  # http://craftcms.com/docs/routing
  #}
 
+{% requireLogin %}
+{% requirePermission "accessCp" %}
+
 {% extends "_layout" %}
 
 {% block content %}

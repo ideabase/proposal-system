@@ -17,11 +17,19 @@
 	<link rel="home" href="{{ siteUrl }}" />
 
   {# Render Favicons #}
-  	{% include '_includes/_favicons' %}
+	{% include '_includes/_favicons' %}
+
   {# Begin Critical CSS #}
-    <style type="text/css">
-			{% include '_includes/critical.css' %}
-    </style>
+  <style rel="stylesheet" type="text/css">
+		{% include '_includes/critical.css' %}
+  </style>
+
+	{# block search indexing #}
+	<meta name="robots" content="noindex">
+
+	{# template head elements #}
+	{% block head %}
+	{% endblock %}
 </head>
 
 <body>

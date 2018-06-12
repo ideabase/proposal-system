@@ -1,5 +1,5 @@
 {
-	"buttons": ["html","clips","format","bold","italic","deleted","lists","image","link","file","horizontalrule"],
+	"buttons": ["clips","html","format","bold","italic","deleted","lists","image","link","file","horizontalrule"],
 	"plugins": ["clips","fullscreen"],
 	"clips": [
 		["test", "test1 test2 test3"]

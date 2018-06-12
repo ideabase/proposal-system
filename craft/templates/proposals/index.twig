@@ -1,20 +1,35 @@
 {# /templates/proposals/index.twig #}
 
-{% extends '\_layout' %}
+{% requireLogin %}
+{% requirePermission "accessCp" %}
 
-{# set proposals = list of proposals ordered by date updated #}
-{% set proposals = craft.entries.section('proposals').orderBy('entries.dateUpdated').all() %}
+{% extends '\_layout' %}
 
 {% block content %}
 
   {# page title #}
   <h1>Proposals</h1>
 
-  {# begin proposals loop #}
-  {% for proposal in proposals %}
-    <div><a href="{{ proposal.url }}">{{ proposal.title }}</a></div>
-  {% endfor %}
-  {# end proposals loop#}
+  {# TODO: search box #}
+
+  <table>
+    <thead>
+      <tr>
+        <th>Proposal</th>
+        <th>Project ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {# begin proposals loop #}
+      {% for proposal in craft.entries.section('proposals').orderBy('entries.dateUpdated').all() %}
+        <tr>
+          <td><a href="{{ proposal.url }}">{{ proposal.title }}</a></td>
+          <td>{{ proposal.projectId }}</td>
+        </tr>
+      {% endfor %}
+      {# end proposals loop#}
+    </tbody>
+  </table>
 
 {% endblock %}
 {# end content block #}
