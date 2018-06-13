@@ -8,16 +8,50 @@
 {# set clients = list of clients ordered by title #}
 {% set clients = craft.categories.group('clients').orderBy('title').all() %}
 
+{% block head %}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" integrity="sha384-1UXhfqyOyO+W+XsGhiIFwwD3hsaHRz2XDGMle3b8bXPH5+cMsXVShDoHA3AH/y/p" crossorigin="anonymous">
+  <style type="text/css">
+    .dataTables_filter {
+      float: left !important;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
 
   {# page title #}
   <h1>Clients</h1>
 
-  {# begin clients loop #}
-  {% for client in clients %}
-    <div><a href="{{ client.url }}">{{ client.title }}</a></div>
-  {% endfor %}
-  {# end clients loop #}
+  <table class="searchTable row-border stripe order-column" width="50%" align="left">
+    <thead>
+      <th>Name</th>
+    </thead>
+    <tbody>
+      {# begin clients loop #}
+      {% for client in clients %}
+        <tr>
+          <td><div><a href="{{ client.url }}">{{ client.title }}</a></div></td>
+        </tr>
+      {% endfor %}
+      {# end clients loop #}
+    </tbody>
+  </table>
 
 {% endblock %}
 {# end content block #}
+
+{% block scripts %}
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" integrity="sha384-Z9D45cp3elqajO+xEyjRTIK1Gr3eYsXiyCPIKNog1sIQzpo2fqFDqFdADGiJjzOv" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.searchTable').DataTable({
+        "paging": false,
+        "info": false,
+    });
+    });
+  </script>
+{% endblock %}

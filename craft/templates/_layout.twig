@@ -24,6 +24,8 @@
 		{% include '_includes/critical.css' %}
   </style>
 
+	<link href="{{ siteUrl }}assets/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+
 	{# block search indexing #}
 	<meta name="robots" content="noindex">
 
@@ -46,7 +48,9 @@
 	{# Include footer #}
 	{% include 'global/footer' %}
 
-  <link href="{{ siteUrl }}assets/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+	{% block scripts %}
+	{% endblock %}
+
   <script type="text/javascript" src="{{ siteUrl }}assets/js/scripts.js"></script>
 
   {# Google Analytics Code - don't forget to change the UA ID #}

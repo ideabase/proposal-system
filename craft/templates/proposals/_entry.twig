@@ -26,7 +26,17 @@
   {# start proposal document #}
   <article id="printArea">
 
-    {# TODO: dropdown for ideabase or glyphix project that displays associated logos #}
+    <div style="display:flex;flex-direction:row;">
+      <div style="flex:1;">
+        <img src="{{ ideabaseLogo.image.one().getUrl }}" alt="{{ ideabaseLogo.imageAlt }}"{% if ideabaseLogo.imageTitle|length %} title="{{ ideabaseLogo.imageTitle }}"{% endif %} style="height:100%;">
+      </div>
+
+      {% if entry.projectType.options[1].selected %}
+        <div style="flex:1;">
+          <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glypixLogo.imageTitle }}"{% endif %}>
+        </div>
+      {% endif %}
+    </div>
 
     {# proposal header #}
     <h1>Proposal of Engagement</h1>
