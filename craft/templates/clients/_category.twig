@@ -13,50 +13,52 @@
   <h1>{{ category.title }}{% if category.organization is not empty %}&nbsp;&sol;&nbsp;{{ category.organization }}{% endif %}</h1>
 
   {# contacts #}
-  <h2>
-    {% if category.contacts.all()|length == 1 %}Contact{% else %}Contacts{% endif %}
-  </h2>
-  {# begin contacts loop #}
-  {% for block in category.contacts.all() %}
-    {% if category.contacts.all()|length > 1 %}
-      <h4>Contact&nbsp;{{ loop.index }}</h4>
-    {% endif %}
+  {% if category.contacts.all()|length %}
+    <h2>
+      {% if category.contacts.all()|length == 1 %}Contact{% else %}Contacts{% endif %}
+    </h2>
+    {# begin contacts loop #}
+    {% for block in category.contacts.all() %}
+      {% if category.contacts.all()|length > 1 %}
+        <h4>Contact&nbsp;{{ loop.index }}</h4>
+      {% endif %}
 
-    <div>
-      {# IMPORTANT: UPDATE 'proposals/_entry' AS WELL IF YOU CHANGE HOW CONTACT NAMES ARE DISPLAYED #}
-      <p>{%- if block.prefix is not empty -%}
-        {{- block.prefix -}}&nbsp;
-        {%- endif -%}
-        {{- block.firstName|title -}}&nbsp;
-        {{- block.lastName|title -}}
-        {%- if block.suffix is not empty -%}
-          {%- if block.suffix|upper in suffixes -%}
-            &nbsp;{{- block.suffix|upper -}}&nbsp;
-          {%- else -%}
-            &comma;&nbsp;{{- block.suffix -}}&nbsp;
+      <div>
+        {# IMPORTANT: UPDATE 'proposals/_entry' AS WELL IF YOU CHANGE HOW CONTACT NAMES ARE DISPLAYED #}
+        <p>{%- if block.prefix is not empty -%}
+          {{- block.prefix -}}&nbsp;
           {%- endif -%}
-        {%- endif -%}
-        {%- if block.contactTitle is not empty -%}
-          &sol;&nbsp;{{- block.contactTitle|title -}}
-        {%- endif -%}</p>
+          {{- block.firstName -}}&nbsp;
+          {{- block.lastName -}}
+          {%- if block.suffix is not empty -%}
+            {%- if block.suffix in suffixes -%}
+              &nbsp;{{- block.suffix -}}&nbsp;
+            {%- else -%}
+              &comma;&nbsp;{{- block.suffix -}}&nbsp;
+            {%- endif -%}
+          {%- endif -%}
+          {%- if block.contactTitle is not empty -%}
+            &sol;&nbsp;{{- block.contactTitle -}}
+          {%- endif -%}</p>
 
-      {% if block.phoneNumber is not empty %}
-        <p>{{ block.phoneNumber }}</p>
-      {% endif %}
+        {% if block.phoneNumber is not empty %}
+          <p>{{ block.phoneNumber }}</p>
+        {% endif %}
 
-      {% if block.email is not empty %}
-        <a href="mailto:{{ block.email }}" alt="Email {{ block.email }}" title="Email {{ block.email }}">{{ block.email }}</a>
-      {% endif %}
+        {% if block.email is not empty %}
+          <a href="mailto:{{ block.email }}" alt="Email {{ block.email }}" title="Email {{ block.email }}">{{ block.email }}</a>
+        {% endif %}
 
-      {% if block.otherInformation is not empty %}
-        <p>{{ block.otherInformation }}</p>
-      {% endif %}
-    </div>
-  {% endfor %}
-  {# end contacts loop #}
+        {% if block.otherInformation is not empty %}
+          <p>{{ block.otherInformation }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+    {# end contacts loop #}
+  {% endif %}
 
   {# addresses #}
-  {% if category.addresses.all()|length > 0 %}
+  {% if category.addresses.all()|length %}
     <h2>
       {% if category.addresses.all()|length == 1 %}Address{% else %}Addresses{% endif %}
     </h2>
@@ -67,13 +69,13 @@
       {% endif %}
 
       <div>
-        <p>{{ block.address1|title }}</p>
+        <p>{{ block.address1 }}</p>
 
         {% if block.address2 is not empty %}
-          <p>{{ block.address2|title }}</p>
+          <p>{{ block.address2 }}</p>
         {% endif %}
 
-        <p>{{ block.city|title }}&comma;&nbsp;{{ block.state|upper }}&nbsp;{{ block.zipCode }}</p>
+        <p>{{ block.city }}&comma;&nbsp;{{ block.state }}&nbsp;{{ block.zipCode }}</p>
 
         {% set gMapsQuery = (block.address1 ~ ' ' ~ block.address2 ~ ', ' ~ block.city ~ ' ' ~ block.state ~ ' ' ~ block.zipCode)|url_encode %}
 
@@ -88,7 +90,7 @@
   {% endif %}
 
   {# proposals #}
-  {% if craft.entries.section('proposals').relatedTo(category).all()|length > 0 %}
+  {% if craft.entries.section('proposals').relatedTo(category).all()|length %}
     <h2>
       {% if craft.categories.group('clients').title(category.title).all()|length == 1 %}Proposal{% else %}Proposals{% endif %}
     </h2>

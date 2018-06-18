@@ -17,7 +17,7 @@
 	<link rel="home" href="{{ siteUrl }}" />
 
   {# Render Favicons #}
-	{% include '_includes/_favicons' %}
+	{% include '_includes/favicons' %}
 
   {# Begin Critical CSS #}
   <style rel="stylesheet" type="text/css">
@@ -37,7 +37,7 @@
 <body>
 
 	{# Include header #}
-  {% include 'global/header' %}
+  {% include '_includes/header' %}
 
 	{# allow extensions of main in content block #}
 	<main role="main">
@@ -46,7 +46,7 @@
 	</main>
 
 	{# Include footer #}
-	{% include 'global/footer' %}
+	{% include '_includes/footer' %}
 
 	{% block scripts %}
 	{% endblock %}
