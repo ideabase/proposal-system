@@ -33,7 +33,7 @@
 
       {% if entry.projectType.options[1].selected %}
         <div style="flex:1;">
-          <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glypixLogo.imageTitle }}"{% endif %}>
+          <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glyphixLogo.imageTitle }}"{% endif %}>
         </div>
       {% endif %}
     </div>
@@ -83,19 +83,19 @@
     </div>
 
     {# project scope #}
-    <div>
-      <h2>Scope of Work</h2>
+    {% if entry.situation|length %}
+      <div>
+        <h2>Scope of Work</h2>
 
-      {# extensive project description (situation) #}
-      {% if entry.situation|length %}
+        {# extensive project description (situation) #}
         <h3>Situation:</h3>
-        <div>
-          {{ entry.situation }}
-        </div>
-      {% endif %}
+        {{ entry.situation }}
+      </div>
+    {% endif %}
 
-      {# proposed project elements #}
-      <h3>Proposed Project Elements and Associated Estimates:</h3>
+    {# proposed project elements #}
+    <div>
+      <h2>Proposed Project Elements and Associated Estimates:</h2>
       {# set variable to increment total cost as project elements are added #}
       {% set totalCost, singleElementHours = 0, 0 %}
 
@@ -110,53 +110,53 @@
         </table>
         {% set totalCost = totalCost + (singleElementHours * entry.pricePerHour.value) %}
       {% endfor %}
+    </div>
 
-      {# suggested timeline #}
-      {% if entry.timeline|length %}
-        <div>
-          <h3>Suggested Timeline</h3>
-
-          <table>
-            {% for row in entry.timeline %}
-              <tr>
-                <td>{{ row.description }}</td>
-                <td>{{ row.time }}</td>
-              </tr>
-            {% endfor %}
-          </table>
-        </div>
-      {% endif %}
-
-      {# display total cost #}
+    {# suggested timeline #}
+    {% if entry.timeline|length %}
       <div>
+        <h2>Suggested Timeline</h2>
+
         <table>
-          {% if entry.discount|length %}
+          {% for row in entry.timeline %}
             <tr>
-              <td>{% if entry.elements.all()|length > 1 %}ESTIMATED TOTAL{% else %}ESTIMATED TOTAL ({{ singleElementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
-              <td>{{ (totalCost)|currency('USD', [], [], true) }}</td>
+              <td>{{ row.description }}</td>
+              <td>{{ row.time }}</td>
             </tr>
-            <tr>
-              <td>Discount ({{ entry.discount }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour)</td>
-              <td>{{ (entry.discount * entry.pricePerHour.value)|currency('USD', [], [], true) }}
-            </tr>
-            {% set totalCost = totalCost - (entry.discount * entry.pricePerHour.value) %}
-            <tr>
-              <td>{% if entry.elements.all()|length > 1 %}ESTIMATED & DISCOUNTED TOTAL{% else %}ESTIMATED & DISCOUNTED TOTAL ({{ singleElementHours - entry.discount }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
-              <td>{{ (totalCost)|currency('USD', [], [], true) }}</td>
-            </tr>
-          {% else %}
-            <tr>
-              <td>{% if entry.elements.all()|length > 1 %}ESTIMATED TOTAL{% else %}ESTIMATED TOTAL ({{ singleElementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
-              <td>{{ totalCost|currency('USD', [], [], true) }}</td>
-            </tr>
-          {% endif %}
+          {% endfor %}
         </table>
       </div>
+    {% endif %}
+
+    {# display total cost #}
+    <div>
+      <table>
+        {% if entry.discount|length %}
+          <tr>
+            <td>{% if entry.elements.all()|length > 1 %}ESTIMATED TOTAL{% else %}ESTIMATED TOTAL ({{ singleElementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
+            <td>{{ (totalCost)|currency('USD', [], [], true) }}</td>
+          </tr>
+          <tr>
+            <td>Discount ({{ entry.discount }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour)</td>
+            <td>{{ (entry.discount * entry.pricePerHour.value)|currency('USD', [], [], true) }}
+          </tr>
+          {% set totalCost = totalCost - (entry.discount * entry.pricePerHour.value) %}
+          <tr>
+            <td>{% if entry.elements.all()|length > 1 %}ESTIMATED & DISCOUNTED TOTAL{% else %}ESTIMATED & DISCOUNTED TOTAL ({{ singleElementHours - entry.discount }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
+            <td>{{ (totalCost)|currency('USD', [], [], true) }}</td>
+          </tr>
+        {% else %}
+          <tr>
+            <td>{% if entry.elements.all()|length > 1 %}ESTIMATED TOTAL{% else %}ESTIMATED TOTAL ({{ singleElementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
+            <td>{{ totalCost|currency('USD', [], [], true) }}</td>
+          </tr>
+        {% endif %}
+      </table>
     </div>
 
     {# additional costs #}
     {% if entry.additionalCosts|length %}
-      <h3>Additional Costs</h3>
+      <h2>Additional Costs</h2>
 
       <div>
         <table>

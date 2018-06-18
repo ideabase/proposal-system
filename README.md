@@ -6,7 +6,7 @@
 
 ### Git
 
-1.  Create a New Repository under IdeaBase
+1.  Create a new repository under IdeaBase
 2.  [Install Tower](https://www.git-tower.com/) or [GitHub Desktop](https://desktop.github.com/) (or use git in a terminal or shell)
 3.  Log into GitHub and [clone the new repository](https://help.github.com/articles/cloning-a-repository/)
 4.  Download the [IdeaBase Starter Kit 2.0 .zip file](https://github.com/ideabase/starter_kit2/archive/master.zip) and copy the files into your cloned repository
@@ -60,19 +60,12 @@
 
 -   If using Pattern Lab, change the "htaccess" file in the public/lab folder to .htaccess, which will automatically redirect visitors at `/lab` to the `/lab/public` directory
 
-### SASS
-
--   Install SASS with RubyGems (Ruby is preinstalled on OSX)
-    ```sh
-    gem install sass
-    ```
-
 ### Node
 
 1.  [Install Node.js](https://nodejs.org/en/download/)
-2.  In a terminal or shell, install Grunt globally with npm
+2.  In a terminal or shell, install Grunt and Sass globally with npm
     ```sh
-    npm install -g grunt-cli
+    npm install -g grunt-cli sass
     ```
 4.  Navigate to your project's web document root (the `public/` or `html/` folder) and execute the command `grunt` to ensure that Grunt is working properly
 
