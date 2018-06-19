@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 18, 2018 at 03:26 PM
+-- Generation Time: Jun 19, 2018 at 12:03 PM
 -- Server version: 5.6.38
--- PHP Version: 7.0.15
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -227,7 +227,7 @@ CREATE TABLE `craft_content` (
 --
 
 INSERT INTO `craft_content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `dateUpdated`, `uid`, `field_body`, `field_email`, `field_phoneNumber`, `field_copyright`, `field_organization`, `field_redactor`, `field_projectId`, `field_date`, `field_situation`, `field_pricePerHour`, `field_timeline`, `field_discount`, `field_additionalCosts`, `field_clientRevisions`, `field_printingCosts`, `field_imageAlt`, `field_imageTitle`, `field_projectType`) VALUES
-(1, 1, 1, NULL, '2018-05-02 20:31:26', '2018-05-02 20:31:26', 'd570f867-dd68-4f6b-92b7-f9c8ad96ec9b', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1, 1, 1, NULL, '2018-05-02 20:31:26', '2018-06-18 19:38:32', 'd570f867-dd68-4f6b-92b7-f9c8ad96ec9b', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 2, 1, 'Home', '2018-05-02 20:42:28', '2018-06-18 17:09:53', '116d8c53-f4f7-45d6-a016-8bae0396ed04', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 12, 1, NULL, '2018-05-07 20:19:03', '2018-05-09 18:47:43', '1c95dca9-3b88-4dcd-b35b-92d8cb6d384a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (6, 13, 1, NULL, '2018-05-07 20:19:06', '2018-05-09 19:28:26', 'fb58221a-0b49-43d3-ba3c-09da76b8e7c8', NULL, 'testemail@email.com', '911', '<p>Copyright nIck pappas</p>\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -235,7 +235,7 @@ INSERT INTO `craft_content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`
 (12, 25, 1, 'B Client', '2018-06-18 17:11:42', '2018-06-18 17:11:42', '7aa18e6a-d4df-4ee7-9785-ed838477a244', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (13, 26, 1, 'C Client', '2018-06-18 17:19:52', '2018-06-18 17:19:52', 'c5c62437-ef9c-4a48-8c3f-de21aafb4bd8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (14, 27, 1, 'D Client', '2018-06-18 17:19:59', '2018-06-18 17:19:59', 'a220cd55-09b3-4de0-9a5f-6bad56813b21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 28, 1, 'Proposal 1', '2018-06-18 17:36:13', '2018-06-18 19:19:57', '66ee15d1-fe10-4b4a-8310-2ba36872a75f', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', '[]', NULL, NULL, NULL),
+(15, 28, 1, 'Proposal 1', '2018-06-18 17:36:13', '2018-06-18 19:45:35', '66ee15d1-fe10-4b4a-8310-2ba36872a75f', NULL, NULL, NULL, NULL, NULL, NULL, '1234project', 'January 1, 2076', '<p>The Kent Historical Society and Museum brings educational programs to schools, businesses, and civic organizations, as well as collaborates with community groups on projects such as the preservation of our historic Pioneer Cemetery, the Main Street Kent revitalization program, and historic preservation projects in the community. The Society is dedicated to documenting Kent history through artifacts, records, and documents from the people of the Kent community. </p>\n<p>The Kent Historical Society and Museum is seeking a website redesign in order to accomplish the following objectives:</p>\n<ul><li>A professional and visually appealing design</li><li>Organized content with intuitive navigation</li><li>Brand consistency on the web with other branded materials</li><li>The ability for users to purchase books and photographs online</li><li>Calendar of events</li></ul>', '60', '[{\"col1\":\"Initial design\",\"col2\":\"End of February\"},{\"col1\":\"Website\",\"col2\":\"End of April\"}]', 10, '[{\"col1\":\"Domain name registration\",\"col2\":\"$15 / year\"},{\"col1\":\"Hosting\",\"col2\":\"$25 / month\"},{\"col1\":\"CMS fee\",\"col2\":\"$299\"}]', '[\"foo\"]', '[\"bar\"]', NULL, NULL, 'glyphix'),
 (16, 29, 1, 'Proposal 2', '2018-06-18 17:36:20', '2018-06-18 19:19:57', '5e79db4d-a3a2-4cbe-a9dc-4e8e4b2cda5a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', '[]', NULL, NULL, NULL),
 (17, 30, 1, 'Proposal 3', '2018-06-18 17:36:26', '2018-06-18 19:19:57', 'e68f8884-e3f4-4c31-9353-0b00d7077691', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', '[]', NULL, NULL, NULL),
 (18, 35, 1, 'Glyphix Logo Color 01', '2018-06-18 18:11:40', '2018-06-18 18:11:40', 'a8e589f3-4ff2-48eb-ae6a-73f32c3e97a5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -320,7 +320,7 @@ CREATE TABLE `craft_elements` (
 --
 
 INSERT INTO `craft_elements` (`id`, `fieldLayoutId`, `type`, `enabled`, `archived`, `dateCreated`, `dateUpdated`, `uid`) VALUES
-(1, NULL, 'craft\\elements\\User', 1, 0, '2018-05-02 20:31:26', '2018-05-02 20:31:26', '89f45b03-5cb5-4ffb-b8ff-9762a1d787ea'),
+(1, NULL, 'craft\\elements\\User', 1, 0, '2018-05-02 20:31:26', '2018-06-18 19:38:32', '89f45b03-5cb5-4ffb-b8ff-9762a1d787ea'),
 (2, 1, 'craft\\elements\\Entry', 1, 0, '2018-05-02 20:42:28', '2018-06-18 17:09:53', '2f926fa0-3b77-4b8d-8a23-03a5069d3ef3'),
 (11, 10, 'craft\\elements\\MatrixBlock', 1, 0, '2018-05-07 20:18:08', '2018-05-09 19:51:57', '5ab98c0c-f2d3-4375-adba-15ba62508093'),
 (12, 11, 'craft\\elements\\GlobalSet', 1, 0, '2018-05-07 20:19:03', '2018-05-09 18:47:43', 'c2246d3f-7d05-4a74-9996-ddd0cfef84b7'),
@@ -331,7 +331,7 @@ INSERT INTO `craft_elements` (`id`, `fieldLayoutId`, `type`, `enabled`, `archive
 (25, 14, 'craft\\elements\\Category', 1, 0, '2018-06-18 17:11:42', '2018-06-18 17:11:42', 'deeba587-cd2d-4355-baa3-ca10c35bc323'),
 (26, 14, 'craft\\elements\\Category', 1, 0, '2018-06-18 17:19:52', '2018-06-18 17:19:52', 'fdeabd2f-cce2-4335-ae09-9c47ebc18348'),
 (27, 14, 'craft\\elements\\Category', 1, 0, '2018-06-18 17:19:59', '2018-06-18 17:19:59', '8cb0444e-8bf1-431b-9cbf-a62be6f81bf2'),
-(28, 13, 'craft\\elements\\Entry', 1, 0, '2018-06-18 17:36:13', '2018-06-18 19:19:57', '6f50b518-7a79-4b14-937b-fad947935bf6'),
+(28, 13, 'craft\\elements\\Entry', 1, 0, '2018-06-18 17:36:13', '2018-06-18 19:45:35', '6f50b518-7a79-4b14-937b-fad947935bf6'),
 (29, 13, 'craft\\elements\\Entry', 1, 0, '2018-06-18 17:36:20', '2018-06-18 19:19:57', 'a5b3d7e6-3fe0-4ef2-b7d9-430dc12f00cb'),
 (30, 13, 'craft\\elements\\Entry', 1, 0, '2018-06-18 17:36:26', '2018-06-18 19:19:57', 'c18309d8-12cc-42cf-9a51-597d623d396b'),
 (31, 15, 'craft\\elements\\MatrixBlock', 1, 0, '2018-06-18 17:59:38', '2018-06-18 18:03:02', '9e98e68a-1d9d-4550-900d-8cf835302dd1'),
@@ -345,7 +345,9 @@ INSERT INTO `craft_elements` (`id`, `fieldLayoutId`, `type`, `enabled`, `archive
 (39, 19, 'craft\\elements\\GlobalSet', 1, 0, '2018-06-18 18:13:39', '2018-06-18 18:53:23', 'f8ee07e2-c792-4653-8b55-89f0a395874e'),
 (40, 20, 'craft\\elements\\GlobalSet', 1, 0, '2018-06-18 18:13:58', '2018-06-18 18:53:37', 'b750858a-80ab-4a06-aca8-35f3cda021c0'),
 (41, 21, 'craft\\elements\\GlobalSet', 1, 0, '2018-06-18 18:53:16', '2018-06-18 19:17:12', 'bc7a891a-4329-4245-bee0-cb5cfa30017e'),
-(42, 22, 'craft\\elements\\GlobalSet', 1, 0, '2018-06-18 18:54:17', '2018-06-18 19:17:19', 'c5586c8c-153c-4f57-9f35-28021013519c');
+(42, 22, 'craft\\elements\\GlobalSet', 1, 0, '2018-06-18 18:54:17', '2018-06-18 19:17:19', 'c5586c8c-153c-4f57-9f35-28021013519c'),
+(43, 23, 'craft\\elements\\MatrixBlock', 1, 0, '2018-06-18 19:45:35', '2018-06-18 19:45:35', '9f786994-5b64-4b47-a0a5-787147d8308f'),
+(44, 23, 'craft\\elements\\MatrixBlock', 1, 0, '2018-06-18 19:45:36', '2018-06-18 19:45:36', '26f230b0-740e-4c41-9b4a-d8d63af51c6f');
 
 -- --------------------------------------------------------
 
@@ -370,7 +372,7 @@ CREATE TABLE `craft_elements_sites` (
 --
 
 INSERT INTO `craft_elements_sites` (`id`, `elementId`, `siteId`, `slug`, `uri`, `enabled`, `dateCreated`, `dateUpdated`, `uid`) VALUES
-(1, 1, 1, NULL, NULL, 1, '2018-05-02 20:31:26', '2018-05-02 20:31:26', '93590951-48e8-403b-8852-90af058d53cb'),
+(1, 1, 1, NULL, NULL, 1, '2018-05-02 20:31:26', '2018-06-18 19:38:32', '93590951-48e8-403b-8852-90af058d53cb'),
 (2, 2, 1, 'home-page', '__home__', 1, '2018-05-02 20:42:28', '2018-06-18 17:09:53', '9e5fe65f-cc68-4244-8a18-4a4d503c6aa1'),
 (11, 11, 1, NULL, NULL, 1, '2018-05-07 20:18:08', '2018-05-09 19:51:57', 'fb4af5b3-10d9-4761-ab94-1a69e1b8861a'),
 (12, 12, 1, NULL, NULL, 1, '2018-05-07 20:19:03', '2018-05-09 18:47:43', 'b64d491c-83e3-4636-b8ae-b40b8678587c'),
@@ -381,7 +383,7 @@ INSERT INTO `craft_elements_sites` (`id`, `elementId`, `siteId`, `slug`, `uri`, 
 (25, 25, 1, 'b-client', 'clients/b-client', 1, '2018-06-18 17:11:42', '2018-06-18 17:11:43', '1be41b0f-2a4c-44fc-9790-910711e877df'),
 (26, 26, 1, 'c-client', 'clients/c-client', 1, '2018-06-18 17:19:52', '2018-06-18 17:19:54', 'bfcd6026-e77e-4704-a839-7d03c952d600'),
 (27, 27, 1, 'd-client', 'clients/d-client', 1, '2018-06-18 17:19:59', '2018-06-18 17:20:01', '1cfd3331-6772-4af8-aeed-26c8a212a107'),
-(28, 28, 1, 'proposal-1', 'proposals/proposal-1', 1, '2018-06-18 17:36:13', '2018-06-18 19:19:57', 'e40f555a-14f5-49e4-8bc7-b12c09a1a454'),
+(28, 28, 1, 'proposal-1', 'proposals/proposal-1', 1, '2018-06-18 17:36:13', '2018-06-18 19:45:35', 'e40f555a-14f5-49e4-8bc7-b12c09a1a454'),
 (29, 29, 1, 'proposal-2', 'proposals/proposal-2', 1, '2018-06-18 17:36:20', '2018-06-18 19:19:57', 'b127d32c-d62e-4026-8499-590510a3d372'),
 (30, 30, 1, 'proposal-3', 'proposals/proposal-3', 1, '2018-06-18 17:36:26', '2018-06-18 19:19:57', '86ea8fed-a535-4485-8357-e1fb49a0e31c'),
 (31, 31, 1, NULL, NULL, 1, '2018-06-18 17:59:38', '2018-06-18 18:03:02', 'e4a4a72a-4425-4268-be88-d404e56cf3de'),
@@ -395,7 +397,9 @@ INSERT INTO `craft_elements_sites` (`id`, `elementId`, `siteId`, `slug`, `uri`, 
 (39, 39, 1, NULL, NULL, 1, '2018-06-18 18:13:39', '2018-06-18 18:53:23', 'c045801a-9542-4f48-9ac1-49037c6c9f75'),
 (40, 40, 1, NULL, NULL, 1, '2018-06-18 18:13:58', '2018-06-18 18:53:37', '19840af4-31cf-4ee3-96a7-c3d9f6db02dd'),
 (41, 41, 1, NULL, NULL, 1, '2018-06-18 18:53:16', '2018-06-18 19:17:12', '5c5bf976-9054-4314-aa3c-b87c317d84de'),
-(42, 42, 1, NULL, NULL, 1, '2018-06-18 18:54:17', '2018-06-18 19:17:19', '10040261-06b8-45b1-ac17-f2fd39ba337d');
+(42, 42, 1, NULL, NULL, 1, '2018-06-18 18:54:17', '2018-06-18 19:17:19', '10040261-06b8-45b1-ac17-f2fd39ba337d'),
+(43, 43, 1, NULL, NULL, 1, '2018-06-18 19:45:35', '2018-06-18 19:45:35', '5a28a2e7-aeac-41b6-8937-54ebf9dae21c'),
+(44, 44, 1, NULL, NULL, 1, '2018-06-18 19:45:36', '2018-06-18 19:45:36', 'b0aaf01d-8e07-4937-ab95-a67d6ecfa934');
 
 -- --------------------------------------------------------
 
@@ -421,7 +425,7 @@ CREATE TABLE `craft_entries` (
 
 INSERT INTO `craft_entries` (`id`, `sectionId`, `typeId`, `authorId`, `postDate`, `expiryDate`, `dateCreated`, `dateUpdated`, `uid`) VALUES
 (2, 1, 1, NULL, '2018-05-02 20:42:28', NULL, '2018-05-02 20:42:28', '2018-06-18 17:09:53', 'ae7775af-d769-4fcb-b46e-df2a77ac1c7e'),
-(28, 2, 2, 1, '2018-06-18 17:36:00', NULL, '2018-06-18 17:36:14', '2018-06-18 19:19:57', '7dc8015c-acbe-486f-8555-0aff2b64abaa'),
+(28, 2, 2, 1, '2018-06-18 17:36:00', NULL, '2018-06-18 17:36:14', '2018-06-18 19:45:35', '7dc8015c-acbe-486f-8555-0aff2b64abaa'),
 (29, 2, 2, 1, '2018-06-18 17:36:00', NULL, '2018-06-18 17:36:20', '2018-06-18 19:19:57', 'a9e06a18-6e35-453c-8613-cd74f66c9d50'),
 (30, 2, 2, 1, '2018-06-18 17:36:00', NULL, '2018-06-18 17:36:26', '2018-06-18 19:19:57', '0a0199fa-083d-4f2c-b56c-70891cd0e443');
 
@@ -521,7 +525,8 @@ INSERT INTO `craft_entryversions` (`id`, `entryId`, `sectionId`, `creatorId`, `s
 (20, 28, 2, 1, 1, 1, '', '{\"typeId\":\"2\",\"authorId\":\"1\",\"title\":\"Proposal 1\",\"slug\":\"proposal-1\",\"postDate\":1529343360,\"expiryDate\":null,\"enabled\":true,\"newParentId\":null,\"fields\":[]}', '2018-06-18 17:36:14', '2018-06-18 17:36:14', '89f2580d-14bd-4c53-bad9-9748efd24f6e'),
 (21, 29, 2, 1, 1, 1, '', '{\"typeId\":\"2\",\"authorId\":\"1\",\"title\":\"Proposal 2\",\"slug\":\"proposal-2\",\"postDate\":1529343360,\"expiryDate\":null,\"enabled\":true,\"newParentId\":null,\"fields\":[]}', '2018-06-18 17:36:20', '2018-06-18 17:36:20', '512b042b-dac3-40b8-b146-02622c407874'),
 (22, 30, 2, 1, 1, 1, '', '{\"typeId\":\"2\",\"authorId\":\"1\",\"title\":\"Proposal 3\",\"slug\":\"proposal-3\",\"postDate\":1529343360,\"expiryDate\":null,\"enabled\":true,\"newParentId\":null,\"fields\":[]}', '2018-06-18 17:36:26', '2018-06-18 17:36:26', 'bf4651ea-84c2-460b-a2b4-da1d25a47715'),
-(23, 28, 2, 1, 1, 2, '', '{\"typeId\":\"2\",\"authorId\":\"1\",\"title\":\"Proposal 1\",\"slug\":\"proposal-1\",\"postDate\":1529343360,\"expiryDate\":null,\"enabled\":true,\"newParentId\":null,\"fields\":{\"43\":[\"24\"]}}', '2018-06-18 18:06:57', '2018-06-18 18:06:57', 'be552ba9-88f0-405f-bf94-c535ed5e897e');
+(23, 28, 2, 1, 1, 2, '', '{\"typeId\":\"2\",\"authorId\":\"1\",\"title\":\"Proposal 1\",\"slug\":\"proposal-1\",\"postDate\":1529343360,\"expiryDate\":null,\"enabled\":true,\"newParentId\":null,\"fields\":{\"43\":[\"24\"]}}', '2018-06-18 18:06:57', '2018-06-18 18:06:57', 'be552ba9-88f0-405f-bf94-c535ed5e897e'),
+(24, 28, 2, 1, 1, 3, '', '{\"typeId\":\"2\",\"authorId\":\"1\",\"title\":\"Proposal 1\",\"slug\":\"proposal-1\",\"postDate\":1529343360,\"expiryDate\":null,\"enabled\":true,\"newParentId\":null,\"fields\":{\"55\":[{\"col1\":\"Domain name registration\",\"col2\":\"$15 / year\"},{\"col1\":\"Hosting\",\"col2\":\"$25 / month\"},{\"col1\":\"CMS fee\",\"col2\":\"$299\"}],\"56\":\"[\\\"foo\\\"]\",\"43\":[\"24\"],\"47\":\"January 1, 2076\",\"54\":\"10\",\"52\":\"60\",\"57\":\"[\\\"bar\\\"]\",\"48\":\"<p>The Kent Historical Society and Museum brings educational programs to schools, businesses, and civic organizations, as well as collaborates with community groups on projects such as the preservation of our historic Pioneer Cemetery, the Main Street Kent revitalization program, and historic preservation projects in the community. The Society is dedicated to documenting Kent history through artifacts, records, and documents from the people of the Kent community. </p>\\n<p>The Kent Historical Society and Museum is seeking a website redesign in order to accomplish the following objectives:</p>\\n<ul><li>A professional and visually appealing design</li><li>Organized content with intuitive navigation</li><li>Brand consistency on the web with other branded materials</li><li>The ability for users to purchase books and photographs online</li><li>Calendar of events</li></ul>\",\"49\":{\"43\":{\"type\":\"element\",\"enabled\":true,\"collapsed\":false,\"fields\":{\"description\":\"<p><strong>Branding and visual strategy</strong></p>\\n<p>IdeaBase will create branding, and accompanying visual strategy for The Kent Historical Society and Museum. IdeaBase will conduct a creative brief with the client in order to determine the objectives of the project and aid in the design. After the creative brief, IdeaBase will present 2-3 concepts for client approval. Once the final brand, tagline and visual strategy are approved, IdeaBase will integrate this visual strategy into the new website and provide the client with the files for future use across other media.</p>\\n\",\"estimatedHours\":\"40\"}},\"44\":{\"type\":\"element\",\"enabled\":true,\"collapsed\":false,\"fields\":{\"description\":\"\\n<p><strong>Website design</strong></p>\\n<ul><li>\\nIdeaBase will design and develop a custom website site design using a Content Management System (CMS). IdeaBase will work with the client to choose a custom design.</li><li>The website will be populated with content (photography and copy) provided by the client using a content template provided by IdeaBase</li><li> IdeaBase will share design elements, layout and content for client approval throughout the design process. The final site will also be approved by the client prior to handoff.</li><li>The website will utilize responsive design and will be viewable in all modern browsers (Internet Explorer 11 and lower is not supported)</li><li> IdeaBase will provide timelines, milestones and approval opportunities throughout the lifetime of the project</li></ul>\",\"estimatedHours\":\"170\"}}},\"46\":\"1234project\",\"53\":[{\"col1\":\"Initial design\",\"col2\":\"End of February\"},{\"col1\":\"Website\",\"col2\":\"End of April\"}],\"60\":\"glyphix\"}}', '2018-06-18 19:45:36', '2018-06-18 19:45:36', '9f93a2f6-53b8-4397-96b7-5dad18c8f988');
 
 -- --------------------------------------------------------
 
@@ -792,7 +797,7 @@ INSERT INTO `craft_fields` (`id`, `groupId`, `name`, `handle`, `context`, `instr
 (44, 4, 'Redactor', 'redactor', 'global', '', 'none', NULL, 'craft\\redactor\\Field', '{\"redactorConfig\":\"\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}', '2018-06-18 18:12:28', '2018-06-18 18:12:28', '7d5054db-4406-4d5d-8659-2d67991c60a2'),
 (45, 4, 'Image', 'image', 'global', '', 'site', NULL, 'craft\\fields\\Assets', '{\"useSingleFolder\":\"\",\"defaultUploadLocationSource\":\"folder:1\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"folder:1\",\"singleUploadLocationSubpath\":\"\",\"restrictFiles\":\"\",\"allowedKinds\":null,\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":\"list\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false}', '2018-06-18 18:52:52', '2018-06-18 18:52:52', '7b63b352-a15d-4aa9-ab90-79226d5e1d47'),
 (46, 3, 'Project ID', 'projectId', 'global', '', 'none', NULL, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-06-18 18:55:36', '2018-06-18 18:55:36', 'de6a60ec-5cda-4585-90a1-d3a77cfd498d'),
-(47, 3, 'Date', 'date', 'global', 'Date that the proposal will be sent to the client', 'none', NULL, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-06-18 18:57:34', '2018-06-18 18:57:34', 'ba5ea0ca-20fb-438c-a329-e8afeab11587'),
+(47, 3, 'Date', 'date', 'global', 'Date that the proposal will be sent to the client, e.g. \"January 1, 2020\"', 'none', NULL, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-06-18 18:57:34', '2018-06-18 19:40:13', 'ba5ea0ca-20fb-438c-a329-e8afeab11587'),
 (48, 3, 'Project Description (Situation)', 'situation', 'global', '', 'none', NULL, 'craft\\redactor\\Field', '{\"redactorConfig\":\"\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}', '2018-06-18 18:58:55', '2018-06-18 18:58:55', '50beae0b-9cb8-4e5b-8544-90451cc566b8'),
 (49, 3, 'Project Elements', 'elements', 'global', '', 'site', NULL, 'craft\\fields\\Matrix', '{\"minBlocks\":\"\",\"maxBlocks\":\"\",\"localizeBlocks\":false}', '2018-06-18 19:01:37', '2018-06-18 19:01:37', 'f6eb40b7-be65-4cb7-a927-48194f6574ec'),
 (50, NULL, 'Description', 'description', 'matrixBlockType:11', '', 'none', NULL, 'craft\\redactor\\Field', '{\"redactorConfig\":\"Proposals.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}', '2018-06-18 19:01:37', '2018-06-18 19:01:37', '2e399343-9e60-48d1-8419-e403ab3f2a69'),
@@ -800,7 +805,7 @@ INSERT INTO `craft_fields` (`id`, `groupId`, `name`, `handle`, `context`, `instr
 (52, 3, 'Hourly Rate', 'pricePerHour', 'global', '', 'none', NULL, 'craft\\fields\\Dropdown', '{\"options\":[{\"label\":\"$40\",\"value\":\"40\",\"default\":\"\"},{\"label\":\"$50\",\"value\":\"50\",\"default\":\"\"},{\"label\":\"$60\",\"value\":\"60\",\"default\":\"1\"},{\"label\":\"$70\",\"value\":\"70\",\"default\":\"\"}]}', '2018-06-18 19:03:01', '2018-06-18 19:03:01', '36b85be7-bc2a-4635-a2d6-5fa6bf9f5dbf'),
 (53, 3, 'Project Timeline', 'timeline', 'global', '', 'none', NULL, 'craft\\fields\\Table', '{\"addRowLabel\":\"Add a row\",\"maxRows\":\"\",\"minRows\":\"\",\"columns\":{\"col1\":{\"heading\":\"Description\",\"handle\":\"description\",\"width\":\"\",\"type\":\"singleline\"},\"col2\":{\"heading\":\"Time, e.g. \\\"End of May / Early June\\\"\",\"handle\":\"time\",\"width\":\"\",\"type\":\"singleline\"}},\"defaults\":{\"row1\":{\"col1\":\"\",\"col2\":\"\"}},\"columnType\":\"text\"}', '2018-06-18 19:05:51', '2018-06-18 19:05:51', 'c1408324-370c-4578-8731-6678664f64ed'),
 (54, 3, 'Discount', 'discount', 'global', 'Number of discounted hours', 'none', NULL, 'craft\\fields\\Number', '{\"defaultValue\":null,\"min\":\"0\",\"max\":null,\"decimals\":0,\"size\":null}', '2018-06-18 19:07:39', '2018-06-18 19:07:39', '95f92909-4c2f-4f0d-914d-effffc470104'),
-(55, 3, 'Additional Costs', 'additionalCosts', 'global', 'Enter any additional costs here', 'none', NULL, 'craft\\fields\\Table', '{\"addRowLabel\":\"Add a row\",\"maxRows\":\"\",\"minRows\":\"\",\"columns\":{\"col1\":{\"heading\":\"Description\",\"handle\":\"description\",\"width\":\"\",\"type\":\"singleline\"},\"col2\":{\"heading\":\"Estimated Cost, e.g. \\\"$299\\\" or \\\"$15 / month\\\"\",\"handle\":\"estimatedCostEG299Or15Month\",\"width\":\"\",\"type\":\"singleline\"}},\"defaults\":{\"row1\":{\"col1\":\"\",\"col2\":\"\"}},\"columnType\":\"text\"}', '2018-06-18 19:12:44', '2018-06-18 19:12:44', 'b55ebbde-ba3a-4d9e-83be-36ecbd57e8eb'),
+(55, 3, 'Additional Costs', 'additionalCosts', 'global', 'Enter any additional costs here', 'none', NULL, 'craft\\fields\\Table', '{\"addRowLabel\":\"Add a row\",\"maxRows\":\"\",\"minRows\":\"\",\"columns\":{\"col1\":{\"heading\":\"Description\",\"handle\":\"description\",\"width\":\"\",\"type\":\"singleline\"},\"col2\":{\"heading\":\"Estimated Cost, e.g. \\\"$299\\\" or \\\"$15 / month\\\"\",\"handle\":\"estimatedCost\",\"width\":\"\",\"type\":\"singleline\"}},\"defaults\":{\"row1\":{\"col1\":\"\",\"col2\":\"\"}},\"columnType\":\"text\"}', '2018-06-18 19:12:44', '2018-06-18 19:46:17', 'b55ebbde-ba3a-4d9e-83be-36ecbd57e8eb'),
 (56, 3, 'Allowance for Client Revisions', 'clientRevisions', 'global', '', 'none', NULL, 'craft\\fields\\Checkboxes', '{\"options\":[{\"label\":\"Display \\\"Please note this estimate allows for 2-3 client revisions. If more than 2-3 sets of client revisions are needed, additional hours will be added to the final invoice.\\\"\",\"value\":\"foo\",\"default\":\"1\"}]}', '2018-06-18 19:14:25', '2018-06-18 19:14:25', 'e199a141-c08d-442b-8918-06154c48ee32'),
 (57, 3, 'Printing Costs', 'printingCosts', 'global', '', 'none', NULL, 'craft\\fields\\Checkboxes', '{\"options\":[{\"label\":\"Display \\\"Please note this estimate includes print coordination only, not actual printing costs.\\\"\",\"value\":\"bar\",\"default\":\"\"}]}', '2018-06-18 19:15:01', '2018-06-18 19:15:01', '15c24d95-8990-4575-ae9d-ac7586eb4939'),
 (58, 4, 'Image Alt', 'imageAlt', 'global', '', 'none', NULL, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-06-18 19:15:39', '2018-06-18 19:15:39', 'c28e8d94-5485-4d35-a74d-a79f0e3c552c'),
@@ -863,7 +868,7 @@ CREATE TABLE `craft_info` (
 --
 
 INSERT INTO `craft_info` (`id`, `version`, `schemaVersion`, `edition`, `timezone`, `name`, `on`, `maintenance`, `fieldVersion`, `dateCreated`, `dateUpdated`, `uid`) VALUES
-(1, '3.0.12', '3.0.91', 1, 'America/New_York', 'IdeaBase Online Proposal System', 1, 0, '2vpDJaV6MDPv', '2018-05-02 20:31:26', '2018-06-18 19:22:27', 'bb4e3e64-e6ce-4490-ae25-923d04716360');
+(1, '3.0.12', '3.0.91', 1, 'America/New_York', 'IdeaBase Online Proposal System', 1, 0, 'DfxdvBmLVGYR', '2018-05-02 20:31:26', '2018-06-18 19:46:17', 'bb4e3e64-e6ce-4490-ae25-923d04716360');
 
 -- --------------------------------------------------------
 
@@ -894,7 +899,9 @@ INSERT INTO `craft_matrixblocks` (`id`, `ownerId`, `ownerSiteId`, `fieldId`, `ty
 (31, 24, NULL, 27, 9, 1, '2018-06-18 17:59:38', '2018-06-18 18:03:02', '9f38b993-afe3-45bd-97bc-52ea2a368c59'),
 (32, 24, NULL, 27, 9, 2, '2018-06-18 18:01:44', '2018-06-18 18:03:02', '7d878804-f329-4581-86b1-1df153b1e1d8'),
 (33, 24, NULL, 35, 10, 1, '2018-06-18 18:01:44', '2018-06-18 18:03:02', 'db4baf4f-1351-4c42-bce9-909ae94ecca6'),
-(34, 24, NULL, 35, 10, 2, '2018-06-18 18:03:02', '2018-06-18 18:03:02', 'ec16d64e-e7d2-4234-b6f1-c23c0a645f9b');
+(34, 24, NULL, 35, 10, 2, '2018-06-18 18:03:02', '2018-06-18 18:03:02', 'ec16d64e-e7d2-4234-b6f1-c23c0a645f9b'),
+(43, 28, NULL, 49, 11, 1, '2018-06-18 19:45:36', '2018-06-18 19:45:36', '1748d1b7-65f3-4962-a889-d88c4f434c4b'),
+(44, 28, NULL, 49, 11, 2, '2018-06-18 19:45:36', '2018-06-18 19:45:36', 'b2c77fbf-84b7-4f19-afe0-c28677cb017a');
 
 -- --------------------------------------------------------
 
@@ -1007,6 +1014,14 @@ CREATE TABLE `craft_matrixcontent_elements` (
   `field_element_description` text,
   `field_element_estimatedHours` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `craft_matrixcontent_elements`
+--
+
+INSERT INTO `craft_matrixcontent_elements` (`id`, `elementId`, `siteId`, `dateCreated`, `dateUpdated`, `uid`, `field_element_description`, `field_element_estimatedHours`) VALUES
+(1, 43, 1, '2018-06-18 19:45:36', '2018-06-18 19:45:36', '58e61677-099c-469c-a388-56d1e8fc5db5', '<p><strong>Branding and visual strategy</strong></p>\n<p>IdeaBase will create branding, and accompanying visual strategy for The Kent Historical Society and Museum. IdeaBase will conduct a creative brief with the client in order to determine the objectives of the project and aid in the design. After the creative brief, IdeaBase will present 2-3 concepts for client approval. Once the final brand, tagline and visual strategy are approved, IdeaBase will integrate this visual strategy into the new website and provide the client with the files for future use across other media.</p>\n', 40),
+(2, 44, 1, '2018-06-18 19:45:36', '2018-06-18 19:45:36', '261a2a9d-6a19-4459-bde3-97b69c96a446', '\n<p><strong>Website design</strong></p>\n<ul><li>\nIdeaBase will design and develop a custom website site design using a Content Management System (CMS). IdeaBase will work with the client to choose a custom design.</li><li>The website will be populated with content (photography and copy) provided by the client using a content template provided by IdeaBase</li><li> IdeaBase will share design elements, layout and content for client approval throughout the design process. The final site will also be approved by the client prior to handoff.</li><li>The website will utilize responsive design and will be viewable in all modern browsers (Internet Explorer 11 and lower is not supported)</li><li> IdeaBase will provide timelines, milestones and approval opportunities throughout the lifetime of the project</li></ul>', 170);
 
 -- --------------------------------------------------------
 
@@ -1266,7 +1281,7 @@ CREATE TABLE `craft_relations` (
 INSERT INTO `craft_relations` (`id`, `fieldId`, `sourceId`, `sourceSiteId`, `targetId`, `sortOrder`, `dateCreated`, `dateUpdated`, `uid`) VALUES
 (37, 45, 41, NULL, 36, 1, '2018-06-18 19:17:12', '2018-06-18 19:17:12', 'dba244a9-2704-43af-885e-2894f621a6a7'),
 (38, 45, 42, NULL, 35, 1, '2018-06-18 19:17:19', '2018-06-18 19:17:19', 'd3c9f967-a7a0-494d-8170-0928b33d644b'),
-(39, 43, 28, NULL, 24, 1, '2018-06-18 19:19:57', '2018-06-18 19:19:57', 'e7f45d42-38b4-47d2-a05c-ac52eaf7af6d');
+(40, 43, 28, NULL, 24, 1, '2018-06-18 19:45:35', '2018-06-18 19:45:35', '13a1a9c0-9d2e-4c69-a51e-ba982c36e585');
 
 -- --------------------------------------------------------
 
@@ -1296,6 +1311,7 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('19df0757', '@lib/garnishjs'),
 ('1e8bcb1c', '@lib/xregexp'),
 ('203a365c', '@app/web/assets/matrix/dist'),
+('206f6898', '@app/web/assets/matrix/dist'),
 ('218252e5', '@mmikkel/cpfieldinspect/resources'),
 ('21b0580f', '@lib/prismjs'),
 ('23365286', '@lib/jquery-touch-events'),
@@ -1312,6 +1328,7 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('2bbedcf', '@runtime/assets/thumbs/18'),
 ('2c315e43', '@craft/web/assets/utilities/dist'),
 ('2f181468', '@app/web/assets/editentry/dist'),
+('2f4d4aac', '@app/web/assets/editentry/dist'),
 ('30a3078f', '@app/web/assets/dbbackup/dist'),
 ('30f6594b', '@app/web/assets/dbbackup/dist'),
 ('360b4fb9', '@runtime/assets/thumbs/7'),
@@ -1326,6 +1343,7 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('413bc31f', '@lib/jquery-touch-events'),
 ('42651f3e', '@app/web/assets/sites/dist'),
 ('43bdc996', '@lib/prismjs'),
+('452a01fb', '@lib/timepicker'),
 ('457f5f3f', '@lib/timepicker'),
 ('45bb9459', '@lib/prismjs'),
 ('469fffdd', '@lib/picturefill'),
@@ -1345,6 +1363,7 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('5c2e37d6', '@app/web/assets/clearcaches/dist'),
 ('5e77fe23', '@lib/fileupload'),
 ('5f45025e', '@craft/web/assets/findreplace/dist'),
+('6765387f', '@app/web/assets/edituser/dist'),
 ('68c741fb', '@lib/fabric'),
 ('6a29083b', '@app/web/assets/deprecationerrors/dist'),
 ('6b55b9c1', '@app/web/assets/updates/dist'),
@@ -1365,12 +1384,14 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('7fb856f4', '@craft/web/assets/pluginstore/dist'),
 ('80f6310e', '@app/web/assets/generalsettings/dist'),
 ('84070f20', '@app/web/assets/updater/dist'),
+('8437d931', '@app/web/assets/matrixsettings/dist'),
 ('846287f5', '@app/web/assets/matrixsettings/dist'),
 ('855a3d28', '@runtime/assets/thumbs/35'),
 ('85dd9d50', '@app/web/assets/craftsupport/dist'),
 ('87a8f936', '@lib/element-resize-detector'),
 ('87ebd0f2', '@vendor/craftcms/redactor/lib/redactor-plugins/clips'),
 ('87fda7f2', '@lib/element-resize-detector'),
+('88ca6e2', '@app/web/assets/fields/dist'),
 ('8c60217d', '@app/web/assets/findreplace/dist'),
 ('8d47529e', '@craft/web/assets/dashboard/dist'),
 ('8d9f826', '@app/web/assets/fields/dist'),
@@ -1387,6 +1408,7 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('a46a00af', '@vendor/craftcms/redactor/lib/redactor'),
 ('a5900a56', '@lib/jquery.payment'),
 ('a5c55492', '@lib/jquery.payment'),
+('a7b7ea2e', '@app/web/assets/tablesettings/dist'),
 ('a7e2b4ea', '@app/web/assets/tablesettings/dist'),
 ('a83852c3', '@bower/jquery/dist'),
 ('a86d0c07', '@bower/jquery/dist'),
@@ -1397,11 +1419,13 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('ae9d8471', '@app/web/assets/utilities/dist'),
 ('aec8dab5', '@app/web/assets/utilities/dist'),
 ('b007e9c9', '@craft/web/assets/craftsupport/dist'),
+('b079ac58', '@app/web/assets/userpermissions/dist'),
 ('b2c4bc62', '@craft/web/assets/deprecationerrors/dist'),
 ('b4960dc8', '@craft/web/assets/updates/dist'),
 ('b572c364', '@runtime/assets/thumbs/19'),
 ('b5a8d39a', '@app/web/assets/feed/dist'),
 ('b5f573ff', '@app/web/assets/recententries/dist'),
+('b5fd8d5e', '@app/web/assets/feed/dist'),
 ('b7a538fc', '@app/web/assets/cp/dist'),
 ('b9b7a5be', '@lib/velocity'),
 ('b9e2fb7a', '@lib/velocity'),
@@ -1426,6 +1450,7 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('cebe7342', '@app/web/assets/feed/dist'),
 ('cf80ad10', '@craft/web/assets/updates/dist'),
 ('d1a31fcc', '@app/web/assets/feed/dist'),
+('d1abe16d', '@app/web/assets/recententries/dist'),
 ('d1febfa9', '@app/web/assets/recententries/dist'),
 ('d5de7a6d', '@app/web/assets/utilities/dist'),
 ('d78bd50f', '@app/web/assets/pluginstore/dist'),
@@ -1435,9 +1460,11 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('dd5c651', '@craft/web/assets/cp/dist'),
 ('ddbc69e8', '@lib/velocity'),
 ('de65e6bc', '@app/web/assets/assetindexes/dist'),
+('e1830fc2', '@app/web/assets/craftsupport/dist'),
 ('e1d65106', '@app/web/assets/craftsupport/dist'),
 ('e3a33560', '@lib/element-resize-detector'),
 ('e5a568af', '@lib/element-resize-detector'),
+('ef11a303', '@app/web/assets/updateswidget/dist'),
 ('ef44fdc7', '@app/web/assets/updateswidget/dist'),
 ('f06a5cba', '@app/web/assets/editcategory/dist'),
 ('f0907133', '@craft/redactor/assets/field/dist'),
@@ -1449,6 +1476,7 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`) VALUES
 ('f74b60df', '@lib/jquery-ui'),
 ('fbe091d6', '@app/web/assets/generalsettings/dist'),
 ('fbed668', '@app/web/assets/dashboard/dist'),
+('feb88ac', '@app/web/assets/dashboard/dist'),
 ('ff11aff8', '@app/web/assets/updater/dist'),
 ('ff74272d', '@app/web/assets/matrixsettings/dist');
 
@@ -1589,23 +1617,23 @@ INSERT INTO `craft_searchindex` (`elementId`, `attribute`, `fieldId`, `siteId`, 
 (41, 'slug', 0, 1, ''),
 (42, 'field', 45, 1, ' glyphix logo color 01 '),
 (42, 'slug', 0, 1, ''),
-(28, 'field', 46, 1, ''),
-(28, 'field', 47, 1, ''),
+(28, 'field', 46, 1, ' 1234project '),
+(28, 'field', 47, 1, ' january 1 2076 '),
 (29, 'field', 46, 1, ''),
 (29, 'field', 47, 1, ''),
 (30, 'field', 46, 1, ''),
 (30, 'field', 47, 1, ''),
-(28, 'field', 52, 1, ''),
-(28, 'field', 48, 1, ''),
-(28, 'field', 49, 1, ''),
+(28, 'field', 52, 1, ' 60 '),
+(28, 'field', 48, 1, ' the kent historical society and museum brings educational programs to schools businesses and civic organizations as well as collaborates with community groups on projects such as the preservation of our historic pioneer cemetery the main street kent revitalization program and historic preservation projects in the community the society is dedicated to documenting kent history through artifacts records and documents from the people of the kent community the kent historical society and museum is seeking a website redesign in order to accomplish the following objectives a professional and visually appealing designorganized content with intuitive navigationbrand consistency on the web with other branded materialsthe ability for users to purchase books and photographs onlinecalendar of events '),
+(28, 'field', 49, 1, ' branding and visual strategy ideabase will create branding and accompanying visual strategy for the kent historical society and museum ideabase will conduct a creative brief with the client in order to determine the objectives of the project and aid in the design after the creative brief ideabase will present 2 3 concepts for client approval once the final brand tagline and visual strategy are approved ideabase will integrate this visual strategy into the new website and provide the client with the files for future use across other media 40 website design ideabase will design and develop a custom website site design using a content management system cms ideabase will work with the client to choose a custom design the website will be populated with content photography and copy provided by the client using a content template provided by ideabase ideabase will share design elements layout and content for client approval throughout the design process the final site will also be approved by the client prior to handoff the website will utilize responsive design and will be viewable in all modern browsers internet explorer 11 and lower is not supported ideabase will provide timelines milestones and approval opportunities throughout the lifetime of the project 170 '),
 (29, 'field', 52, 1, ''),
 (29, 'field', 48, 1, ''),
 (29, 'field', 49, 1, ''),
 (30, 'field', 52, 1, ''),
 (30, 'field', 48, 1, ''),
 (30, 'field', 49, 1, ''),
-(28, 'field', 53, 1, ''),
-(28, 'field', 54, 1, ''),
+(28, 'field', 53, 1, ' initial design end of february initial design end of february website end of april website end of april '),
+(28, 'field', 54, 1, ' 10 '),
 (29, 'field', 53, 1, ''),
 (29, 'field', 54, 1, ''),
 (30, 'field', 53, 1, ''),
@@ -1614,10 +1642,10 @@ INSERT INTO `craft_searchindex` (`elementId`, `attribute`, `fieldId`, `siteId`, 
 (41, 'field', 58, 1, ' ideabase logo '),
 (41, 'field', 59, 1, ''),
 (42, 'field', 59, 1, ''),
-(28, 'field', 60, 1, ''),
-(28, 'field', 55, 1, ''),
-(28, 'field', 57, 1, ''),
-(28, 'field', 56, 1, ''),
+(28, 'field', 60, 1, ' glyphix '),
+(28, 'field', 55, 1, ' domain name registration $15 year domain name registration $15 year hosting $25 month hosting $25 month cms fee $299 cms fee $299 '),
+(28, 'field', 57, 1, ' bar '),
+(28, 'field', 56, 1, ' foo '),
 (29, 'field', 60, 1, ''),
 (29, 'field', 55, 1, ''),
 (29, 'field', 57, 1, ''),
@@ -1625,7 +1653,13 @@ INSERT INTO `craft_searchindex` (`elementId`, `attribute`, `fieldId`, `siteId`, 
 (30, 'field', 60, 1, ''),
 (30, 'field', 55, 1, ''),
 (30, 'field', 57, 1, ''),
-(30, 'field', 56, 1, '');
+(30, 'field', 56, 1, ''),
+(43, 'field', 50, 1, ' branding and visual strategy ideabase will create branding and accompanying visual strategy for the kent historical society and museum ideabase will conduct a creative brief with the client in order to determine the objectives of the project and aid in the design after the creative brief ideabase will present 2 3 concepts for client approval once the final brand tagline and visual strategy are approved ideabase will integrate this visual strategy into the new website and provide the client with the files for future use across other media '),
+(43, 'field', 51, 1, ' 40 '),
+(43, 'slug', 0, 1, ''),
+(44, 'field', 50, 1, ' website design ideabase will design and develop a custom website site design using a content management system cms ideabase will work with the client to choose a custom design the website will be populated with content photography and copy provided by the client using a content template provided by ideabase ideabase will share design elements layout and content for client approval throughout the design process the final site will also be approved by the client prior to handoff the website will utilize responsive design and will be viewable in all modern browsers internet explorer 11 and lower is not supported ideabase will provide timelines milestones and approval opportunities throughout the lifetime of the project '),
+(44, 'field', 51, 1, ' 170 '),
+(44, 'slug', 0, 1, '');
 
 -- --------------------------------------------------------
 
@@ -1701,7 +1735,8 @@ CREATE TABLE `craft_sessions` (
 --
 
 INSERT INTO `craft_sessions` (`id`, `userId`, `token`, `dateCreated`, `dateUpdated`, `uid`) VALUES
-(2, 1, '0ukFQpBmansTKYpkYdw1T1Sn3pm08zzn7vVsXLZXE8NvMtnjg77FH0j20wOVGrhyiM4CJ4Jed8ff_vDsqglRCSm2gZcWM-gn9ecv', '2018-05-09 20:47:12', '2018-05-09 20:56:20', 'f3d1ac2c-d2e7-492d-b26c-d17027ae6434');
+(2, 1, '0ukFQpBmansTKYpkYdw1T1Sn3pm08zzn7vVsXLZXE8NvMtnjg77FH0j20wOVGrhyiM4CJ4Jed8ff_vDsqglRCSm2gZcWM-gn9ecv', '2018-05-09 20:47:12', '2018-05-09 20:56:20', 'f3d1ac2c-d2e7-492d-b26c-d17027ae6434'),
+(3, 1, 'fy3kHstEivWfmCpM7Lr9O35ojki2zJP9WB2w-FbRkelNNy8a3l_RLV-BPgt9NXZ7SAdbPiU42AZy4A2mCwPe6MBwO3jO7ZxntbrU', '2018-06-18 19:38:10', '2018-06-18 20:19:45', 'a1c0092f-c8a6-4026-b83d-0cd502ea4b4a');
 
 -- --------------------------------------------------------
 
@@ -2035,7 +2070,7 @@ CREATE TABLE `craft_userpreferences` (
 --
 
 INSERT INTO `craft_userpreferences` (`userId`, `preferences`) VALUES
-(1, '{\"language\":\"en-US\"}');
+(1, '{\"language\":\"en-US\",\"weekStartDay\":\"0\",\"enableDebugToolbarForSite\":false,\"enableDebugToolbarForCp\":false}');
 
 -- --------------------------------------------------------
 
@@ -2077,7 +2112,7 @@ CREATE TABLE `craft_users` (
 --
 
 INSERT INTO `craft_users` (`id`, `username`, `photoId`, `firstName`, `lastName`, `email`, `password`, `admin`, `locked`, `suspended`, `pending`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `hasDashboard`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`, `uid`) VALUES
-(1, 'ideabase', NULL, NULL, NULL, 'info@ideabasekent.com', '$2y$13$5T6BIgvlnAVqKK4rDrY/3urxYSaEsVCHl24zJvtUTDsH6DThE4mnO', 1, 0, 0, 0, '2018-05-09 20:47:12', '::1', NULL, NULL, '2018-05-09 18:40:05', NULL, 1, NULL, NULL, NULL, 0, '2018-05-02 20:31:27', '2018-05-02 20:31:27', '2018-05-09 20:47:12', '36ed8153-4670-400d-8540-d2f926079c0e');
+(1, 'ideabase', NULL, '', '', 'info@ideabasekent.com', '$2y$13$GH24bDZSwZlI.GZdNbvP9.fveID0MqTeoHSkaC11s9zU6OcZUfpuG', 1, 0, 0, 0, '2018-06-18 19:38:10', '::1', NULL, NULL, '2018-06-18 19:37:58', NULL, 1, NULL, NULL, NULL, 0, '2018-06-18 19:38:34', '2018-05-02 20:31:27', '2018-06-18 19:38:34', '36ed8153-4670-400d-8540-d2f926079c0e');
 
 -- --------------------------------------------------------
 
@@ -2749,7 +2784,7 @@ ALTER TABLE `craft_craftidtokens`
 -- AUTO_INCREMENT for table `craft_deprecationerrors`
 --
 ALTER TABLE `craft_deprecationerrors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2636;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `craft_elementindexsettings`
@@ -2761,13 +2796,13 @@ ALTER TABLE `craft_elementindexsettings`
 -- AUTO_INCREMENT for table `craft_elements`
 --
 ALTER TABLE `craft_elements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `craft_elements_sites`
 --
 ALTER TABLE `craft_elements_sites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `craft_entrydrafts`
@@ -2785,7 +2820,7 @@ ALTER TABLE `craft_entrytypes`
 -- AUTO_INCREMENT for table `craft_entryversions`
 --
 ALTER TABLE `craft_entryversions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `craft_fieldgroups`
@@ -2851,7 +2886,7 @@ ALTER TABLE `craft_matrixcontent_contacts`
 -- AUTO_INCREMENT for table `craft_matrixcontent_elements`
 --
 ALTER TABLE `craft_matrixcontent_elements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `craft_matrixcontent_pagecontent`
@@ -2881,13 +2916,13 @@ ALTER TABLE `craft_plugins`
 -- AUTO_INCREMENT for table `craft_queue`
 --
 ALTER TABLE `craft_queue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `craft_relations`
 --
 ALTER TABLE `craft_relations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `craft_routes`
@@ -2911,7 +2946,7 @@ ALTER TABLE `craft_sections_sites`
 -- AUTO_INCREMENT for table `craft_sessions`
 --
 ALTER TABLE `craft_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `craft_shunnedmessages`
