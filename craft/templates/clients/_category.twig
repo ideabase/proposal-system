@@ -17,44 +17,42 @@
     <h2>
       {% if category.contacts.all()|length == 1 %}Contact{% else %}Contacts{% endif %}
     </h2>
-    {# begin contacts loop #}
-    {% for block in category.contacts.all() %}
-      {% if category.contacts.all()|length > 1 %}
-        <h4>Contact&nbsp;{{ loop.index }}</h4>
-      {% endif %}
-
-      <div>
+    <div class="card-container">
+      {# begin contacts loop #}
+      {% for block in category.contacts.all() %}
         {# IMPORTANT: UPDATE 'proposals/_entry' AS WELL IF YOU CHANGE HOW CONTACT NAMES ARE DISPLAYED #}
-        <p>{%- if block.prefix is not empty -%}
-          {{- block.prefix -}}&nbsp;
-          {%- endif -%}
-          {{- block.firstName -}}&nbsp;
-          {{- block.lastName -}}
-          {%- if block.suffix is not empty -%}
-            {%- if block.suffix in suffixes -%}
-              &nbsp;{{- block.suffix -}}&nbsp;
-            {%- else -%}
-              &comma;&nbsp;{{- block.suffix -}}&nbsp;
+        <div class="card">
+          <p>{%- if block.prefix is not empty -%}
+            {{- block.prefix -}}&nbsp;
             {%- endif -%}
-          {%- endif -%}
-          {%- if block.contactTitle is not empty -%}
-            &sol;&nbsp;{{- block.contactTitle -}}
-          {%- endif -%}</p>
+            {{- block.firstName -}}&nbsp;
+            {{- block.lastName -}}
+            {%- if block.suffix is not empty -%}
+              {%- if block.suffix in suffixes -%}
+                &nbsp;{{- block.suffix -}}&nbsp;
+              {%- else -%}
+                &comma;&nbsp;{{- block.suffix -}}&nbsp;
+              {%- endif -%}
+            {%- endif -%}
+            {%- if block.contactTitle is not empty -%}
+              &sol;&nbsp;{{- block.contactTitle -}}
+            {%- endif -%}</p>
 
-        {% if block.phoneNumber is not empty %}
-          <p>{{ block.phoneNumber }}</p>
-        {% endif %}
+          {% if block.phoneNumber is not empty %}
+            <p>{{ block.phoneNumber }}</p>
+          {% endif %}
 
-        {% if block.email is not empty %}
-          <a href="mailto:{{ block.email }}" alt="Email {{ block.email }}" title="Email {{ block.email }}">{{ block.email }}</a>
-        {% endif %}
+          {% if block.email is not empty %}
+            <a href="mailto:{{ block.email }}" alt="Email {{ block.email }}" title="Email {{ block.email }}">{{ block.email }}</a>
+          {% endif %}
 
-        {% if block.otherInformation is not empty %}
-          <p>{{ block.otherInformation }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-    {# end contacts loop #}
+          {% if block.otherInformation is not empty %}
+            <p>{{ block.otherInformation }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      {# end contacts loop #}
+    </div>
   {% endif %}
 
   {# addresses #}
@@ -62,32 +60,34 @@
     <h2>
       {% if category.addresses.all()|length == 1 %}Address{% else %}Addresses{% endif %}
     </h2>
-    {# begin addresses loop #}
-    {% for block in category.addresses.all() %}
-      {% if category.addresses.all()|length > 1 %}
-        <h4>Address&nbsp;{{ loop.index }}</h4>
-      {% endif %}
+    <div class="card-container">
+      {# begin addresses loop #}
+      {% for block in category.addresses.all() %}
+        <div class="card">
+          {% if category.addresses.all()|length > 1 %}
+            <h4>Address&nbsp;{{ loop.index }}</h4>
+          {% endif %}
 
-      <div>
-        <p>{{ block.address1 }}</p>
+          <p>{{ block.address1 }}</p>
 
-        {% if block.address2 is not empty %}
-          <p>{{ block.address2 }}</p>
-        {% endif %}
+          {% if block.address2 is not empty %}
+            <p>{{ block.address2 }}</p>
+          {% endif %}
 
-        <p>{{ block.city }}&comma;&nbsp;{{ block.state }}&nbsp;{{ block.zipCode }}</p>
+          <p>{{ block.city }}&comma;&nbsp;{{ block.state }}&nbsp;{{ block.zipCode }}</p>
 
-        {% set gMapsQuery = (block.address1 ~ ' ' ~ block.address2 ~ ', ' ~ block.city ~ ' ' ~ block.state ~ ' ' ~ block.zipCode)|url_encode %}
+          {% set gMapsQuery = (block.address1 ~ ' ' ~ block.address2 ~ ', ' ~ block.city ~ ' ' ~ block.state ~ ' ' ~ block.zipCode)|url_encode %}
 
-        <a href="https://www.google.com/maps/search/?api=1&query={{ gMapsQuery }}" alt="Open in Google Maps" title="Open in Google Maps" target="_blank">Google Maps</a>
+          <a href="https://www.google.com/maps/search/?api=1&query={{ gMapsQuery }}" alt="Open in Google Maps" title="Open in Google Maps" target="_blank">Google Maps</a>
 
-        {% if block.description is not empty %}
-          <p>{{ block.description }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-    {# end addresses loop #}
-  {% endif %}
+          {% if block.description is not empty %}
+            <p>{{ block.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      {# end addresses loop #}
+    {% endif %}
+  </div>
 
   {# proposals #}
   {% if craft.entries.section('proposals').relatedTo(category).all()|length %}
@@ -97,7 +97,7 @@
 
     {# begin proposals loop #}
     {% for entry in craft.entries.section('proposals').relatedTo(category).all() %}
-      {{ entry.getLink() }}
+      <a href="{{ entry.url }}" class="button">{{ entry.title }}</a>
     {% endfor %}
     {# end proposals loop #}
   {% endif %}
