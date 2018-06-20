@@ -67,6 +67,10 @@
     ```sh
     npm install -g grunt-cli sass
     ```
+3.  In your project's web document root (the `public/` or `html/` folder), install the npm packages from package.json
+    ```sh
+    npm install
+    ```
 4.  Navigate to your project's web document root (the `public/` or `html/` folder) and execute the command `grunt` to ensure that Grunt is working properly
 
 ##### Grunt will do the following:

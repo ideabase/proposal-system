@@ -1,0 +1,26 @@
+<?php
+return array(
+  '*' => array(
+    'extraAllowedFileExtensions' => 'eps',
+    'siteUrl' => 'PRODUCTION URL',
+    'enableCsrfProtection' => true,
+    'omitScriptNameInUrls' => true,
+    'cpTrigger' => 'admin',
+    'aliases' => array(
+       'basePath' => '',
+       'baseUrl'  => 'PRODUCTION URL',
+    ),
+    'securityKey' => 'SECURITY KEY HERE',
+    'loginPath' => 'admin/login'
+),
+	'proposals.local' => array(
+    'devMode' => true,
+    'siteUrl' => 'DEV URL',
+    'cache' => false,
+    'enableTemplateCaching' => false,
+    'aliases' => array(
+      'basePath' => '',
+      'baseUrl'  => 'DEV URL',
+    )
+	)
+);

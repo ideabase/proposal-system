@@ -1,0 +1,1 @@
+function printPdf(a){var b=document.getElementById(a).innerHTML,c=document.body.innerHTML;document.body.innerHTML=b,window.print(),document.body.innerHTML=c}
