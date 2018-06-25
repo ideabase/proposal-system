@@ -22,6 +22,10 @@
       <p><strong>Project ID:</strong> {{ entry.projectId }}</p>
     {% endif %}
 
+    {% if entry.billingNumber|length %}
+      <p><strong>KSU Billing Number:</strong> {{ entry.billingNumber }}</p>
+    {% endif %}
+
     <a class="button" onclick="window.print()" href="">Print</a>
   </div>
 
