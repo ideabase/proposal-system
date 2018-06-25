@@ -10,28 +10,24 @@
   {# page title #}
   <h1>Proposals</h1>
 
-  <div class="card-container">
-    <div class="card">
-      <table>
-        <thead>
-          <tr>
-            <th>Proposal</th>
-            <th>Project ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          {# begin proposals loop #}
-          {% for proposal in craft.entries.section('proposals').orderBy('entries.dateUpdated').all() %}
-            <tr>
-              <td><a href="{{ proposal.url }}">{{ proposal.title }}</a></td>
-              <td>{{ proposal.projectId }}</td>
-            </tr>
-          {% endfor %}
-          {# end proposals loop#}
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Proposal</th>
+        <th>Project ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {# begin proposals loop #}
+      {% for proposal in craft.entries.section('proposals').orderBy('entries.dateUpdated').all() %}
+        <tr>
+          <td><a href="{{ proposal.url }}">{{ proposal.title }}</a></td>
+          <td>{{ proposal.projectId }}</td>
+        </tr>
+      {% endfor %}
+      {# end proposals loop#}
+    </tbody>
+  </table>
 
 {% endblock %}
 {# end content block #}

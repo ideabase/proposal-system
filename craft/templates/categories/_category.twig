@@ -1,0 +1,23 @@
+{# /templates/categories/_category.twig #}
+
+{% requireLogin %}
+{% requirePermission "accessCp" %}
+
+{% extends '_layout' %}
+
+{% block content %}
+
+  {# page title #}
+  <h1>{{ category.title }}</h1>
+
+  {# proposals #}
+  {% if craft.entries.section('proposals').relatedTo(category).all()|length %}
+    {# begin proposals loop #}
+    {% for entry in craft.entries.section('proposals').relatedTo(category).all() %}
+      <a href="{{ entry.url }}" class="button">{{ entry.title }}</a>
+    {% endfor %}
+    {# end proposals loop #}
+  {% endif %}
+
+{% endblock %}
+{# end content block #}

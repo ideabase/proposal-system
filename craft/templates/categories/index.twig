@@ -1,0 +1,32 @@
+{# /templates/categories/index.twig #}
+
+{% requireLogin %}
+{% requirePermission "accessCp" %}
+
+{% extends '_layout' %}
+
+{# set categories = list of categories ordered by title #}
+{% set categories = craft.categories.group('projectCategories').orderBy('title').all() %}
+
+{% block content %}
+
+  {# page title #}
+  <h1>Categories</h1>
+
+  <table>
+    <thead>
+      <th>Name</th>
+    </thead>
+    <tbody>
+      {# begin categories loop #}
+      {% for category in categories %}
+        <tr>
+          <td><div><a href="{{ category.url }}">{{ category.title }}</a></div></td>
+        </tr>
+      {% endfor %}
+      {# end categories loop #}
+    </tbody>
+  </table>
+
+{% endblock %}
+{# end content block #}
