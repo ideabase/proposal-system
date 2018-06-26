@@ -26,7 +26,7 @@
       <p><strong>KSU Billing Number:</strong> {{ entry.billingNumber }}</p>
     {% endif %}
 
-    <a class="button" onclick="window.print()" href="">Print</a>
+    <a class="button button-primary" onclick="window.print()" href="">Print</a>
   </div>
 
   {# start proposal document #}
@@ -35,7 +35,8 @@
     <section class="page page-cover">
       <div class="page-cover-text">
         {# proposal header #}
-        <h1>Proposal of Engagement</h1>
+        <h1>Proposal</h1>
+        <h1>of Engagement</h1>
 
         <table>
           <tbody>
@@ -66,7 +67,7 @@
             </tr>
             <tr>
               <td><strong>From:</strong></td>
-              <td>IdeaBase, a Research-Based Design Agency at Kent State University</td>
+              <td>IdeaBase, a Design Agency at Kent State University</td>
             </tr>
             <tr>
               <td><strong>Date:</strong></td>
@@ -77,62 +78,60 @@
       </div>
 
       <div class="page-cover-logos">
-        <img src="{{ ideabaseLogo.image.one().getUrl }}" alt="{{ ideabaseLogo.imageAlt }}"{% if ideabaseLogo.imageTitle|length %} title="{{ ideabaseLogo.imageTitle }}"{% endif %} style="height:100%;">
+        <img src="{{ ideabaseLogoWhite.image.one().getUrl }}" alt="{{ ideabaseLogoWhite.imageAlt }}"{% if ideabaseLogoWhite.imageTitle|length %} title="{{ ideabaseLogoWhite.imageTitle }}"{% endif %} class="logo-ideabase-white">
 
         {% if entry.projectType.options[1].selected %}
-          <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glyphixLogo.imageTitle }}"{% endif %}>
+          <img src="{{ glyphixLogoWhite.image.one().getUrl }}" alt="{{ glyphixLogoWhite.imageAlt }}"{% if glyphixLogoWhite.imageTitle|length %} title="{{ glyphixLogoWhite.imageTitle }}"{% endif %} class="logo-glyphix-white">
         {% endif %}
       </div>
     </section>
 
-    <section class="page">
-      <div class="page-logos">
-        <img src="{{ ideabaseLogo.image.one().getUrl }}" alt="{{ ideabaseLogo.imageAlt }}"{% if ideabaseLogo.imageTitle|length %} title="{{ ideabaseLogo.imageTitle }}"{% endif %} style="height:100%;">
+    <section class="page page-letter">
+      <div class="page-letter-text">
+        <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %} class="logo-ideabase-stacked">
 
-        {% if entry.projectType.options[1].selected %}
-          <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glyphixLogo.imageTitle }}"{% endif %}>
-        {% endif %}
+        <p class="mt-0">{{ entry.date }}</p>
+        <br>
+        <p class="address">{{ client.title }}<br>{{ address.address1 }}{% if address.address2 is not empty %}<br>{{ address.address2 }}{% endif %}<br>{{ address.city }} {{ address.state|upper }} {{ address.zipCode }}</p>
+
+        {# thank you note #}
+        <p>Dear {{ contact.firstName }},</p>
+        <p>Thank you for engaging IdeaBase to prepare a quotation for {{ client.title }}. This Proposal of Engagement will outline the scope of our engagement and the projected hours and costs associated with its completion.</p>
+
+        {# working with IdeaBase global #}
+        {{ proposalWorking.redactor }}
+
+        <br>
+
+        <p>Sincerely,</p>
+        <br>
+        {# TODO: signature #}
+        <p>Kristin Dowling<br>Director, IdeaBase</p>
       </div>
 
-      <p>{{ entry.date }}</p>
-      <p>{{ address.address1 }}{% if address.address2 is not empty %}, {{ address.address2 }}{% endif %}<br>{{ address.city }} {{ address.state|upper }} {{ address.zipCode }}</p>
-
-      <br>
-
-      {# thank you note #}
-      <p>Thank you for engaging IdeaBase to prepare a quotation for {{ client.title }}, {{ address.address1 }}{% if address.address2 is not empty %}, {{ address.address2 }}{% endif %}, {{ address.city }} {{ address.state|upper }} {{ address.zipCode }}. IdeaBase is an initiative within the College of Communication and Information at Kent State University. This Proposal of Engagement will outline the scope of our engagement and the projected hours and costs associated with its completion.</p>
-
-      {# working with IdeaBase global #}
-      {{ proposalWorking.redactor }}
-
-      <br>
-
-      <p>Sincerely,</p>
-
-      <br><br>
-      {# TODO: signature #}
-      <p>Kristin Dowling</p>
-      <p>Director, IdeaBase</p>
-    </section>
-
-    <section class="page">
-      <div class="page-logos">
-        <img src="{{ ideabaseLogo.image.one().getUrl }}" alt="{{ ideabaseLogo.imageAlt }}"{% if ideabaseLogo.imageTitle|length %} title="{{ ideabaseLogo.imageTitle }}"{% endif %} style="height:100%;">
-
-        {% if entry.projectType.options[1].selected %}
-          <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glyphixLogo.imageTitle }}"{% endif %}>
-        {% endif %}
+      <div class="container-footer">
+        <hr>
+        <div class="container-footer-info">
+          <p>138 E Main Street, Suite 203, Kent OH 44240</p>
+          <p>(330) 672-IDEA (4332)</p>
+          <p>ideabasekent.com</p>
+        </div>
       </div>
-
-      {# project scope #}
-      {% if entry.situation|length %}
-        <h1>Scope of Work</h1>
-
-        {# extensive project description (situation) #}
-        <h3>Situation:</h3>
-        {{ entry.situation }}
-      {% endif %}
     </section>
+
+    {# project scope #}
+    {% if entry.situation|length %}
+      <section class="page page-scope page-container">
+        <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %}>
+
+        <div>
+          <h1>Scope of Work</h1>
+
+          {# extensive project description (situation) #}
+          {{ entry.situation }}
+        </div>
+      </section>
+    {% endif %}
 
     {# check if project elements are separated by phase #}
     {% set phases = false %}
@@ -158,59 +157,66 @@
       {# print a page for each phase #}
       {% for phase in 1..phaseCount %}
         {# IMPORTANT: IF YOU EDIT THIS PAGE, YOU MUST ALSO EDIT THE NON-PHASE PAGE BELOW #}
-        <section class="page page-elements">
-          <div class="page-logos">
-            <img src="{{ ideabaseLogo.image.one().getUrl }}" alt="{{ ideabaseLogo.imageAlt }}"{% if ideabaseLogo.imageTitle|length %} title="{{ ideabaseLogo.imageTitle }}"{% endif %} style="height:100%;">
-
-            {% if entry.projectType.options[1].selected %}
-              <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glyphixLogo.imageTitle }}"{% endif %}>
-            {% endif %}
-          </div>
-
-          {# proposed project elements #}
-          <h1>Project Elements</h1>
-
-          <h2 class="h2-phase">Phase {{ phase }}</h2>
-
+        <section class="page page-element page-container">
           {# initialize phase cost outside of loop #}
           {% set phaseCost = 0 %}
+          {% set phaseHours = 0 %}
 
           {% for block in entry.elements.all() %}
             {% if block.phase == phase %}
-              <h3>{{ block.elementTitle }}</h3>
+              <div>
+                <h3 class="element-title">{{ block.elementTitle }}</h3>
 
-              {% set elementHours = block.estimatedHours %}
-              {% set phaseCost = phaseCost + elementHours * entry.pricePerHour.value %}
-              {{ block.description }}
-              <table>
-                <tr>
-                  <td>{{ elementHours }} hours *</td>
-                  <td>{{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour =</td>
-                  <td>${{ elementHours * entry.pricePerHour.value }}</td>
-                </tr>
-              </table>
+                {% set elementHours = block.estimatedHours %}
+                {% set phaseCost = phaseCost + elementHours * entry.pricePerHour.value %}
+                {% set phaseHours = phaseHours + elementHours %}
+                {{ block.description }}
+                <table>
+                  <thead>
+                    <th>Est. Hours</th>
+                    <th>Rate/Hour</th>
+                    <th>Element Subtotal</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ elementHours }}</td>
+                      <td>{{ entry.pricePerHour.value|currency('USD', [], [], true) }}</td>
+                      <td>{{ (elementHours * entry.pricePerHour.value)|currency('USD', [], [], true) }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               {% set totalCost = totalCost + (elementHours * entry.pricePerHour.value) %}
             {% endif %}
           {% endfor %}
-          <h3>Phase Subtotal: ${{ phaseCost }}</h3>
+          <div class="phase-subtotal">
+            {# phase subtotal #}
+            <h4>Phase {{ phase }} Subtotal</h4>
+            <table class="table-phase">
+              <thead>
+                <tr>
+                  <th>Est. Hours</th>
+                  <th>Rate/Hour</th>
+                  <th>Phase Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ phaseHours }}</td>
+                  <td>{{ entry.pricePerHour.value|currency('USD', [], [], true) }}</td>
+                  <td>{{ phaseCost|currency('USD', [], [], true) }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Payment for Phase {{ phase }} and signoff will be required at this point in the project before proceeding with the next phase.</p>
+          </div>
         </section>
       {% endfor %}
     {% else %}
       {% for block in entry.elements.all() %}
       {# IMPORTANT: IF YOU EDIT THIS PAGE, YOU MUST ALSO EDIT THE PHASE PAGE ABOVE #}
-        <section class="page">
-          <div class="page-logos page-elements">
-            <img src="{{ ideabaseLogo.image.one().getUrl }}" alt="{{ ideabaseLogo.imageAlt }}"{% if ideabaseLogo.imageTitle|length %} title="{{ ideabaseLogo.imageTitle }}"{% endif %} style="height:100%;">
-
-            {% if entry.projectType.options[1].selected %}
-              <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glyphixLogo.imageTitle }}"{% endif %}>
-            {% endif %}
-          </div>
-
-          {# proposed project elements #}
-          <h1>Project Elements</h1>
-
-          <h2>{{ block.elementTitle }}</h2>
+        <section class="page page-element page-container">
+          <h3 class="element-title">{{ block.elementTitle }}</h3>
 
           {% set elementHours = block.estimatedHours %}
           {{ block.description }}
@@ -227,14 +233,8 @@
     {# end phases #}
 
     {# summary page #}
-    <section class="page">
-      <div class="page-logos">
-        <img src="{{ ideabaseLogo.image.one().getUrl }}" alt="{{ ideabaseLogo.imageAlt }}"{% if ideabaseLogo.imageTitle|length %} title="{{ ideabaseLogo.imageTitle }}"{% endif %} style="height:100%;">
-
-        {% if entry.projectType.options[1].selected %}
-          <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glyphixLogo.imageTitle }}"{% endif %}>
-        {% endif %}
-      </div>
+    <section class="page page-container">
+      <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %}>
 
       <h1>Summary</h1>
 
@@ -315,14 +315,8 @@
     </section>
 
     {# agreement page #}
-    <section class="page">
-      <div class="page-logos">
-        <img src="{{ ideabaseLogo.image.one().getUrl }}" alt="{{ ideabaseLogo.imageAlt }}"{% if ideabaseLogo.imageTitle|length %} title="{{ ideabaseLogo.imageTitle }}"{% endif %} style="height:100%;">
-
-        {% if entry.projectType.options[1].selected %}
-          <img src="{{ glyphixLogo.image.one().getUrl }}" alt="{{ glyphixLogo.imageAlt }}"{% if glyphixLogo.imageTitle|length %} title="{{ glyphixLogo.imageTitle }}"{% endif %}>
-        {% endif %}
-      </div>
+    <section class="page page-container">
+      <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %}>
 
       <h1>Agreement</h1>
 

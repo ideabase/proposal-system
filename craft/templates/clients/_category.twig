@@ -85,7 +85,7 @@
 
     {# begin proposals loop #}
     {% for entry in craft.entries.section('proposals').relatedTo(category).all() %}
-      <a href="{{ entry.url }}" class="button">{{ entry.title }}</a>
+      <a href="{{ entry.url }}" class="button button-primary">{{ entry.title }}</a>
     {% endfor %}
     {# end proposals loop #}
   {% endif %}

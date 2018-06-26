@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       {# begin proposals loop #}
-      {% for proposal in craft.entries.section('proposals').orderBy('entries.dateUpdated').all() %}
+      {% for proposal in craft.entries.section('proposals').orderBy('entries.dateUpdated desc').all() %}
         <tr>
           <td><a href="{{ proposal.url }}">{{ proposal.title }}</a></td>
           <td>{{ proposal.projectId }}</td>

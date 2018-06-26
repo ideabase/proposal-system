@@ -1,66 +1,17 @@
-$color-black: #000;
-
-$color-bg: #eee;
-$color-card-bg: #fafafa;
-$color-button-bg: #f5f5f5;
-
-$font-family-body: Arial, Helvetica, sans-serif;
-
-@mixin card($padding-y: 5%, $padding-x: 5%) {
-  background-color: $color-card-bg;
-  box-shadow: 0 4px 8px rgba($color-black, .2);
-  padding: $padding-y $padding-x;
-}
-
-html {
-  background-color: $color-bg;
-  height: 100%;
-}
+// html {
+//   background-color: $color-bg;
+//   height: 100%;
+// }
 
 body {
   color: $color-black;
-  font-family: $font-family-body;
-  margin: 0 auto;
-  padding: 5%;
+  font-family: $source;
 }
 
 img {
   display: block;
   max-width: 100%;
-}
-
-.button {
-  background-color: $color-button-bg;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba($color-black, .2);
-  color: $color-black;
-  padding: .5em 1.5em;
-  text-decoration: none;
-  transition: background .2s, box-shadow .2s;
-
-  &:hover {
-    background-color: darken($color-button-bg, 2);
-    box-shadow: 0 4px 8px rgba($color-black, .2);
-  }
-
-  // buttons not the last child of their container
-  &:not(:last-child) {
-    margin-right: 1em;
-  }
-}
-
-.card-container {
-  align-content: stretch;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card {
-  @include card(1em, 2em);
-
-  &:not(:last-child) {
-    margin-right: 1em;
-  }
+  overflow: auto;
 }
 
 ////////////////////////////////////////
@@ -70,35 +21,17 @@ img {
 /////////////////
 // screen only //
 /////////////////
-@media screen, projection {
+@media not print {
+  body {
+    margin: 0 auto;
+    padding: .75in;
+  }
+
   .page {
     @include card;
-    margin: 5% auto 0;
+    margin: 0 auto 5%;
     max-width: 8.5in;
     min-height: 11in;
-  }
-}
-
-////////////////
-// print only //
-////////////////
-@media print {
-  // make containers 100% of page height, to vertical center page-cover
-  html,
-  body,
-  main,
-  .proposal {
-    height: 100%;
-  }
-
-  // hide everything except proposal
-  .print-hide {
-    display: none;
-  }
-
-  // page-break after every .page class
-  .page {
-    page-break-after: always;
   }
 }
 
@@ -107,67 +40,307 @@ img {
 ///////////////////////////
 
 .proposal-header {
-  margin: 0 auto;
+  margin: 0 auto 2em;
   max-width: 8.5in;
-}
 
-// all pages
-.page {
-  &:not(.page-cover) {
-    h1 {
-      text-align: center;
-    }
+  * {
+    line-height: .5;
+  }
+
+  .button {
+    margin-top: 0;
   }
 }
 
-.page-logos {
-  align-items: center;
+.page-container {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
 
   img {
-    width: 25%;
+    align-self: center;
+    width: 20%;
+  }
+
+  h1,
+  h2 {
+    font-size: 2.5em;
+    text-align: left;
+  }
+
+  h1:first-of-type {
+    margin-top: 1em;
+  }
+
+  h2 {
+    margin: 0;
   }
 }
 
 // cover page
 .page-cover {
-  align-items: center;
+  align-items: flex-end;
+  background-color: $blue;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
-  justify-content: center;
-}
+  padding: 5% 10%;
 
-.page-cover-text {
-  align-self: flex-end;
-
-  // remove margin that moves centered div
-  :first-child {
-    margin-top: 0;
+  > * {
+    width: 100%;
   }
 }
 
-.page-cover-logos {
-  align-items: center;
+// cover page text
+.page-cover-text {
   align-self: flex-end;
-  display: flex;
-  width: 100%;
+  margin-top: 50%;
 
-  img {
-    overflow: auto;
+  * {
+    color: $color-white;
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    letter-spacing: .1em;
+    line-height: .5;
+  }
+
+  table {
+    margin-top: 3em;
+  }
+
+  tr {
+    font-size: 1.15em;
+    line-height: 1.5em;
+
+    :first-child { // first column
+      letter-spacing: .05em;
+      margin-right: 1.25em;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    :nth-child(2) { // second column
+      font-weight: 300;
+      letter-spacing: .015em;
+    }
+  }
+}
+
+// cover page logos
+.page-cover-logos {
+  display: flex;
+  justify-content: space-between;
+
+  .logo-ideabase-white {
+    width: 45%; // ratio calculated from ideabase and glyphix logo heights
+  }
+
+  .logo-glyphix-white {
+    width: 32%; // ratio calculated from ideabase and glyphix logo heights
+  }
+}
+
+// letter
+.page-letter {
+  color: $darkgray;
+  display: flex;
+  flex-direction: column;
+  font-size: .9em;
+  height: 100%; // push footer to bottom when printing
+  justify-content: space-between;
+
+  .page-letter-text {
+    position: relative;
+
+    .logo-ideabase-stacked {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 20%;
+    }
+  }
+
+  .address {
+    line-height: 1.25;
+  }
+
+  .mt-0 {
+    margin-top: 0;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    display: inline-block;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    padding-left: 25px;
+    text-indent: -25px;
+    width: 100%;
+
+    ::before {
+      background-color: $cyan;
+      color: $cyan;
+      content: '';
+      display: inline-block;
+      height: 5px;
+      margin-bottom: 2px;
+      margin-right: 20px;
+      width: 5px;
+    }
+  }
+
+  .container-footer {
+    color: $lightgray;
+    display: flex;
+    flex-direction: column;
+    font-family: $mont;
+    font-size: .75em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+
+    hr {
+      border: 1px solid $cyan;
+      width: 100%;
+    }
+
+    .container-footer-info {
+      display: flex;
+      justify-items: space-between;
+      width: 100%;
+
+      p {
+        flex: 1 1 auto;
+        margin-bottom: 0;
+
+        &:nth-child(2) {
+          text-align: center;
+        }
+
+        &:nth-child(3) {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+// scope of work
+.page-scope {
+  p {
+    &:first-of-type {
+      color: $darkgray;
+      font-size: 1.25em;
+
+      &::after {
+        background-color: $blue;
+        content: '';
+        display: block;
+        height: 5px;
+        margin-bottom: .75em;
+        margin-top: 1.5em;
+        width: 2em;
+      }
+    }
+  }
+
+  ul {
+    font-size: 1.1em;
+    line-height: 2;
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+
+
+      &::before {
+        content: '•';
+        display: inline-block;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+// element pages
+.page-element {
+  .element-title {
+    color: $darkgray;
+    font-size: 2em;
+    margin-top: 0;
+  }
+
+  h3,
+  h4 {
+    margin-bottom: .5em;
+  }
+
+  table:not(.table-phase) {
+    align-self: flex-start;
+    margin-top: .5em;
+  }
+
+  th,
+  td {
+    border: 2px solid lighten($lightgray, 10);
+    line-height: 2;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  th {
+    color: $color-white;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    &:first-child,
+    &:nth-child(2) {
+      background-color: $blue;
+    }
+
+    &:nth-child(3) {
+      background-color: $darkgray;
+    }
+  }
+}
+
+// phase subtotal
+.phase-subtotal {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+
+  h4 {
+    color: $color-black;
+    font-family: $mont;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  &::before {
+    background-color: $darkgray;
+    content: '';
+    display: block;
+    height: 2px;
+    margin-top: 2em;
     width: 100%;
   }
 }
 
 // terms
 .page-terms {
-  p {
-    font-size: .8em;
+  h1 {
+    margin-top: 0;
   }
-}
 
-.h2-phase {
-  text-align: center;
+  p {
+    font-size: .78em;
+  }
 }

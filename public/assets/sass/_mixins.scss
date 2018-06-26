@@ -1,0 +1,5 @@
+@mixin card {
+  background-color: $color-white;
+  box-shadow: 0 4px 8px rgba($color-black, .2);
+  padding: 5%;
+}
