@@ -121,7 +121,7 @@
 
     {# project scope #}
     {% if entry.situation|length %}
-      <section class="page page-scope page-container">
+      <section class="page page-scope container-page">
         <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %}>
 
         <div>
@@ -157,21 +157,26 @@
       {# print a page for each phase #}
       {% for phase in 1..phaseCount %}
         {# IMPORTANT: IF YOU EDIT THIS PAGE, YOU MUST ALSO EDIT THE NON-PHASE PAGE BELOW #}
-        <section class="page page-element page-container">
+        <section class="page page-element container-page">
           {# initialize phase cost outside of loop #}
           {% set phaseCost = 0 %}
           {% set phaseHours = 0 %}
 
-          {% for block in entry.elements.all() %}
-            {% if block.phase == phase %}
-              <div>
-                <h3 class="element-title">{{ block.elementTitle }}</h3>
+          <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %}>
+
+          <div class="container-element">
+            <h1 class="h1-separator">Project Elements</h1>
+            <h2>Phase {{ phase }}</h2>
+            {% for block in entry.elements.all() %}
+              {% if block.phase == phase %}
+                <h3 class="h3-element">{{ block.elementTitle }}</h3>
 
                 {% set elementHours = block.estimatedHours %}
                 {% set phaseCost = phaseCost + elementHours * entry.pricePerHour.value %}
                 {% set phaseHours = phaseHours + elementHours %}
                 {{ block.description }}
-                <table>
+
+                <table class="table-element">
                   <thead>
                     <th>Est. Hours</th>
                     <th>Rate/Hour</th>
@@ -185,14 +190,14 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
-              {% set totalCost = totalCost + (elementHours * entry.pricePerHour.value) %}
-            {% endif %}
-          {% endfor %}
+                {% set totalCost = totalCost + (elementHours * entry.pricePerHour.value) %}
+              {% endif %}
+            {% endfor %}
+          </div>
           <div class="phase-subtotal">
             {# phase subtotal #}
             <h4>Phase {{ phase }} Subtotal</h4>
-            <table class="table-phase">
+            <table>
               <thead>
                 <tr>
                   <th>Est. Hours</th>
@@ -215,39 +220,44 @@
     {% else %}
       {% for block in entry.elements.all() %}
       {# IMPORTANT: IF YOU EDIT THIS PAGE, YOU MUST ALSO EDIT THE PHASE PAGE ABOVE #}
-        <section class="page page-element page-container">
-          <h3 class="element-title">{{ block.elementTitle }}</h3>
+        <section class="page page-element container-page">
+          <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %}>
+          <div class="container-element">
+            <h1 class="h1-separator">Project Elements</h1>
+            <h3 class="h3-element">{{ block.elementTitle }}</h3>
 
-          {% set elementHours = block.estimatedHours %}
-          {{ block.description }}
-          <table>
-            <tr>
-              <td>{{ elementHours }}</td>
-              <td>{{ entry.pricePerHour.value|currency('USD', [], [], true) }}</td>
-            </tr>
-          </table>
-          {% set totalCost = totalCost + (elementHours * entry.pricePerHour.value) %}
+            {% set elementHours = block.estimatedHours %}
+            {{ block.description }}
+            <table class="table-element">
+              <tr>
+                <td>{{ elementHours }}</td>
+                <td>{{ entry.pricePerHour.value|currency('USD', [], [], true) }}</td>
+              </tr>
+            </table>
+            {% set totalCost = totalCost + (elementHours * entry.pricePerHour.value) %}
+          </div>
         </section>
       {% endfor %}
     {% endif %}
     {# end phases #}
 
-    {# summary page #}
-    <section class="page page-container">
+    {# cost/timeline summary page #}
+    <section class="page page-summary container-page">
       <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %}>
 
-      <h1>Summary</h1>
+      <h1 class="h1-separator">Cost / Timeline Summary</h1>
 
       {% if entry.timeline|length %}
-        <table>
+        <table class="table-subtotal">
           <thead>
             <tr>
               {% if phases %}
                 <th>Phase</th>
               {% endif %}
-              <th>Element</th>
-              <th>Estimated Time</th>
-              <th>Estimated Cost</th>
+              <th>Element Name</th>
+              <th>Hours</th>
+              <th>Completion</th>
+              <th>Subtotal</th>
             </tr>
           </thead>
           <tbody>
@@ -257,6 +267,7 @@
                   <td>{{ block.phase }}</td>
                 {% endif %}
                 <td>{{ block.elementTitle }}</td>
+                <td>{{ block.estimatedHours }}</td>
                 <td>{{ block.estimatedTime }}</td>
                 <td>{{ (block.estimatedHours * entry.pricePerHour.value)|currency('USD', [], [], true) }}</td>
               </tr>
@@ -265,10 +276,10 @@
       {% endif %}
 
       {# display total cost #}
-      <table>
+      <table class="table-total">
         {% if entry.discount|length %}
           <tr>
-            <td>{% if entry.elements.all()|length > 1 %}ESTIMATED TOTAL{% else %}ESTIMATED TOTAL ({{ elementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
+            <td>Estimated Total</td>
             <td>{{ (totalCost)|currency('USD', [], [], true) }}</td>
           </tr>
           <tr>
@@ -278,16 +289,33 @@
           {% set totalCost = totalCost - (entry.discount * entry.pricePerHour.value) %}
           {% set elementHours = elementHours - entry.discount %}
           <tr>
-            <td>{% if entry.elements.all()|length > 1 %}ESTIMATED & DISCOUNTED TOTAL{% else %}ESTIMATED & DISCOUNTED TOTAL ({{ elementHours - entry.discount }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
-            <td>{{ (totalCost)|currency('USD', [], [], true) }}</td>
+            <td>Discounted Total</td>
+            <td>{{ totalCost|currency('USD', [], [], true) }}</td>
           </tr>
         {% else %}
           <tr>
-            <td>{% if entry.elements.all()|length > 1 %}ESTIMATED TOTAL{% else %}ESTIMATED TOTAL ({{ elementHours }} hours at {{ entry.pricePerHour.value|currency('USD', [], [], true) }}/hour){% endif %}</td>
+            <td>Estimated Total</td>
             <td>{{ totalCost|currency('USD', [], [], true) }}</td>
           </tr>
         {% endif %}
       </table>
+
+      {# printing costs #}
+      {% if entry.printingCosts|length %}
+        <p class="p-note">Please note this estimate includes print coordination only, not actual printing costs.</p>
+      {% endif %}
+
+      {# allowance for client revisions #}
+      {% if entry.clientRevisions|length %}
+        <p class="p-note">Please note this estimate allows for 2-3 client revisions. If more than 2-3 sets of client revisions are needed, additional hours will be added to the final invoice.</p>
+      {% endif %}
+
+      {# payment schedule #}
+      {# {% if entry.paymentSchedule|length %} #}
+        <h2>Payment Schedule</h2>
+        <p>We project the following payment schedule through the completion of the project.</p>
+        {# TODO #}
+      {# {% endif %} #}
 
       {# additional costs #}
       {% if entry.additionalCosts|length %}
@@ -302,23 +330,13 @@
           {% endfor %}
         </table>
       {% endif %}
-
-      {# printing costs #}
-      {% if entry.printingCosts|length %}
-        <p>Please note this estimate includes print coordination only, not actual printing costs.</p>
-      {% endif %}
-
-      {# allowance for client revisions #}
-      {% if entry.clientRevisions|length %}
-        <p>Please note this estimate allows for 2-3 client revisions. If more than 2-3 sets of client revisions are needed, additional hours will be added to the final invoice.</p>
-      {% endif %}
     </section>
 
     {# agreement page #}
-    <section class="page page-container">
+    <section class="page page-agreement container-page">
       <img src="{{ ideabaseLogoStacked.image.one().getUrl }}" alt="{{ ideabaseLogoStacked.imageAlt }}"{% if ideabaseLogoStacked.imageTitle|length %} title="{{ ideabaseLogoStacked.imageTitle }}"{% endif %}>
 
-      <h1>Agreement</h1>
+      <h1 class="h1-separator">Agreement</h1>
 
       {# proposal agreement global #}
       {{ proposalAgreement.redactor }}
@@ -327,7 +345,7 @@
     </section>
 
     {# terms page #}
-    <section class="page page-terms">
+    <section class="page page-terms container-page">
       {# terms and conditions global #}
       {{ proposalTerms.redactor }}
     </section>

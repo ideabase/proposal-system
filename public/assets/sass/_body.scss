@@ -1,11 +1,6 @@
-// html {
-//   background-color: $color-bg;
-//   height: 100%;
-// }
-
 body {
-  color: $color-black;
-  font-family: $source;
+  // color: $color-black;
+  // font-family: $source;
 }
 
 img {
@@ -49,31 +44,6 @@ img {
 
   .button {
     margin-top: 0;
-  }
-}
-
-.page-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  img {
-    align-self: center;
-    width: 20%;
-  }
-
-  h1,
-  h2 {
-    font-size: 2.5em;
-    text-align: left;
-  }
-
-  h1:first-of-type {
-    margin-top: 1em;
-  }
-
-  h2 {
-    margin: 0;
   }
 }
 
@@ -145,14 +115,16 @@ img {
 
 // letter
 .page-letter {
+  @include list-style-type-square;
+
   color: $darkgray;
   display: flex;
   flex-direction: column;
   font-size: .9em;
   height: 100%; // push footer to bottom when printing
-  justify-content: space-between;
 
   .page-letter-text {
+    flex-grow: 1;
     position: relative;
 
     .logo-ideabase-stacked {
@@ -169,30 +141,6 @@ img {
 
   .mt-0 {
     margin-top: 0;
-  }
-
-  ul {
-    padding-left: 0;
-  }
-
-  li {
-    display: inline-block;
-    line-height: 1.5em;
-    margin-bottom: 1em;
-    padding-left: 25px;
-    text-indent: -25px;
-    width: 100%;
-
-    ::before {
-      background-color: $cyan;
-      color: $cyan;
-      content: '';
-      display: inline-block;
-      height: 5px;
-      margin-bottom: 2px;
-      margin-right: 20px;
-      width: 5px;
-    }
   }
 
   .container-footer {
@@ -230,58 +178,44 @@ img {
   }
 }
 
-// scope of work
-.page-scope {
-  p {
-    &:first-of-type {
-      color: $darkgray;
-      font-size: 1.25em;
+.container-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
-      &::after {
-        background-color: $blue;
-        content: '';
-        display: block;
-        height: 5px;
-        margin-bottom: .75em;
-        margin-top: 1.5em;
-        width: 2em;
-      }
-    }
+  img {
+    align-self: center;
+    flex-shrink: 0; // container-element can grow, don't want img to shrink
+    width: 20%;
   }
 
-  ul {
-    font-size: 1.1em;
-    line-height: 2;
-    list-style-type: none;
-    padding-left: 0;
-
-    li {
-
-
-      &::before {
-        content: '•';
-        display: inline-block;
-        margin-right: 20px;
-      }
-    }
-  }
-}
-
-// element pages
-.page-element {
-  .element-title {
-    color: $darkgray;
-    font-size: 2em;
-    margin-top: 0;
+  h1,
+  h2 {
+    text-align: left;
   }
 
-  h3,
+  h1 {
+    font-size: 2.25em;
+    letter-spacing: .05em;
+    margin-top: .25em;
+  }
+
+  .h1-separator {
+    @include separator-after;
+  }
+
+  h2 {
+    letter-spacing: .05em;
+    margin-bottom: .75em;
+    margin-top: .25em;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
   h4 {
     margin-bottom: .5em;
-  }
-
-  table:not(.table-phase) {
-    align-self: flex-start;
     margin-top: .5em;
   }
 
@@ -294,23 +228,62 @@ img {
   }
 
   th {
+    background-color: $blue;
     color: $color-white;
     letter-spacing: .1em;
     text-transform: uppercase;
 
-    &:first-child,
-    &:nth-child(2) {
-      background-color: $blue;
-    }
-
-    &:nth-child(3) {
+    &:last-child {
       background-color: $darkgray;
     }
+  }
+
+  td {
+    &:last-child {
+      text-align: right;
+    }
+  }
+}
+
+// scope of work page
+.page-scope {
+  @include list-style-type-bullet;
+
+  p {
+    &:first-of-type {
+      @include separator-after(0, 1em);
+
+      color: $darkgray;
+      font-size: 1.25em;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+// container for element stuff before phase subtotal
+.container-element {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+// element pages
+.page-element {
+  @include list-style-type-bullet;
+
+  .h3-element {
+    color: $darkgray;
+  }
+
+  .table-element {
+    align-self: flex-start;
   }
 }
 
 // phase subtotal
 .phase-subtotal {
+  @include separator-before;
+
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -324,23 +297,80 @@ img {
     text-transform: uppercase;
   }
 
-  &::before {
-    background-color: $darkgray;
-    content: '';
-    display: block;
-    height: 2px;
-    margin-top: 2em;
-    width: 100%;
+  p {
+    font-style: italic;
+    line-height: 1.25;
+    margin-bottom: 0;
+    text-align: center;
+    width: 70%;
   }
 }
 
-// terms
+// summary page
+.page-summary {
+  .table-subtotal,
+  .table-total {
+    td {
+      &:last-child {
+        width: 20%;
+      }
+    }
+  }
+
+  .table-total {
+    align-self: flex-end;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: .5em;
+    text-transform: uppercase;
+
+    td {
+      border: 0;
+      line-height: 1.25;
+    }
+  }
+
+  .p-note {
+    font-style: italic;
+    line-height: 1.25;
+    margin-bottom: .5em;
+  }
+
+  h2 {
+    margin-top: 1em;
+  }
+
+  p {
+    &:not(.p-note) {
+      margin: 0;
+    }
+  }
+}
+
+// agreement page
+.page-agreement {
+  p {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
+// terms page
 .page-terms {
   h1 {
+    @include separator-after;
+
     margin-top: 0;
   }
 
   p {
-    font-size: .78em;
+    font-size: .9em;
+    line-height: 1.25em;
+    margin-bottom: 0;
+  }
+
+  pre {
+    margin-top: .25em;
   }
 }
