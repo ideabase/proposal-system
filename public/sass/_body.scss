@@ -1,27 +1,7 @@
-body {
-  // color: $color-black;
-  // font-family: $source;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  overflow: auto;
-}
-
-////////////////////////////////////////
-// proposals
-////////////////////////////////////////
-
 /////////////////
 // screen only //
 /////////////////
 @media not print {
-  body {
-    margin: 0 auto;
-    padding: .75in;
-  }
-
   .page {
     @include card;
     margin: 0 auto 5%;

@@ -10,7 +10,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-        'assets/css/style.css': 'assets/sass/style.scss'
+        'css/style.css': 'sass/style.scss'
         }
       }
     },
@@ -20,8 +20,8 @@ module.exports = function(grunt) {
           url: "LOCAL URL",
                 width: 1200,
                 height: 900,
-                outputfile: "assets/css/critical.css",
-                filename: "assets/css/style.css", // Using path.resolve( path.join( ... ) ) is a good idea here
+                outputfile: "css/critical.css",
+                filename: "css/style.css", // Using path.resolve( path.join( ... ) ) is a good idea here
                 buffer: 800*1024,
                 ignoreConsole: false
         }
@@ -30,14 +30,14 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'assets/js/min/scripts-min.js': ['assets/js/*.js']
+          'js/min/scripts-min.js': ['js/*.js']
         }
       }
     },
     autoprefixer: {
       your_target: {
         files: {
-          'assets/css/style.css': 'assets/css/style.css'
+          'css/style.css': 'css/style.css'
         }
       },
     },

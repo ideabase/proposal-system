@@ -1,6 +1,6 @@
 {
     "require": {
-        "craftcms/cms": "3.0.13.2",
+        "craftcms/cms": "3.0.14",
         "craftcms/redactor": "2.1.0",
         "craftcms/redactor-clips": "2.0.0"
     },

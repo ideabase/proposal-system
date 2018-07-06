@@ -1,12 +1,5 @@
 {% spaceless %}
 
-{#
- # Layout template
- # ---------------
- # See Twig’s Template Inheritance documentation for more details:
- # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
- #}
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -16,32 +9,17 @@
 	<title>{% if title is defined %}{{ title }}&nbsp;-&nbsp;{% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
 
-  {# Render Favicons #}
-	{% include '_includes/favicons' %}
-
-  {# Begin Critical CSS #}
-  <style rel="stylesheet" type="text/css">
-		{% include '_includes/critical.css' %}
-  </style>
-
 	{# TODO: remove once styling is figured out #}
 	<link href="https://www.ideabasekent.com/css/styles.css" type="text/css" rel="stylesheet" media="screen, projection, print"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700%7CSource+Sans+Pro:600,700,400,400italic,300" media="all">
 
-	<link href="{{ siteUrl }}assets/css/style.css" type="text/css" rel="stylesheet" media="screen, projection, print"/>
+	<link href="{{ siteUrl }}css/style.css" type="text/css" rel="stylesheet" media="screen, projection, print"/>
 
 	{# block search indexing #}
 	<meta name="robots" content="noindex">
-
-	{# template head elements #}
-	{% block head %}
-	{% endblock %}
 </head>
 
 <body>
-
-	{# Include header #}
-  {% include '_includes/header' %}
 
 	{# allow extensions of main in content block #}
 	<main role="main">
@@ -49,13 +27,7 @@
 		{% endblock %}
 	</main>
 
-	{# Include footer #}
-	{% include '_includes/footer' %}
-
-	{% block scripts %}
-	{% endblock %}
-
-  <script type="text/javascript" src="{{ siteUrl }}assets/js/min/scripts-min.js"></script>
+  <script type="text/javascript" src="{{ siteUrl }}js/min/scripts-min.js"></script>
 
   {# Google Analytics Code - don't forget to change the UA ID #}
   <script>
@@ -68,7 +40,7 @@
 			a.async = 1;
 			a.src = g;
 			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', '{{ siteUrl }}assets/js/min/analytics.js', 'ga');
+		})(window, document, 'script', '{{ siteUrl }}js/min/analytics.js', 'ga');
 		ga('create', 'UA-########-#', 'auto');
 		ga('send', 'pageview');
   </script>
